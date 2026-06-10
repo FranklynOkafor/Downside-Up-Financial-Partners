@@ -1,0 +1,51 @@
+# Ignore everything by default
+*
+
+# Allow .gitignore itself
+!.gitignore
+
+# Allow wp-content
+!wp-content/
+
+# Ignore uploads, cache, backups
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backups/
+
+# Ignore all themes/plugins
+wp-content/themes/*
+wp-content/plugins/*
+
+# Allow only your custom theme/plugin
+!wp-content/themes/downside-up-theme/
+!wp-content/themes/downside-up-theme/**
+
+!wp-content/plugins/downside-up-quiz/
+!wp-content/plugins/downside-up-quiz/**
+
+# Optional: allow mu-plugins if you use them
+#!wp-content/mu-plugins/
+#!wp-content/mu-plugins/**
+
+# Ignore environment/config files
+wp-config.php
+.env
+.env.local
+
+# Ignore OS/editor junk
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+
+# Ignore node dependencies if using build tools
+node_modules/
+
+# Ignore Composer vendor directory
+vendor/
+
+# Ignore package lock files if desired
+# package-lock.json
+# yarn.lock
