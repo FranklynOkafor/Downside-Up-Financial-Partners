@@ -18,8 +18,8 @@ wp-content/themes/*
 wp-content/plugins/*
 
 # Allow only your custom theme/plugin
-!wp-content/themes/downside-up-theme/
-!wp-content/themes/downside-up-theme/**
+!wp-content/themes/downside-up/
+!wp-content/themes/downside-up/**
 
 !wp-content/plugins/downside-up-quiz/
 !wp-content/plugins/downside-up-quiz/**
