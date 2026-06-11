@@ -1,0 +1,13 @@
+/*
+Theme Name: Downside Up
+Author: Franklyn Okafor
+Author URI: https://github.com/FranklynOkafor
+Description: Custom WordPress theme for Downside Up Financial Partners
+Version: 1.0.0
+Text Domain: downside-up
+*/
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}

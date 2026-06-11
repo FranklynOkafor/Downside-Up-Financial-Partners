@@ -4,48 +4,49 @@
 # Allow .gitignore itself
 !.gitignore
 
-# Allow wp-content
-!wp-content/
+# ── Unblock the directory chain down to wp-content ──────────────────────────
+!app/
+!app/public/
+!app/public/wp-content/
+!app/public/wp-content/themes/
+!app/public/wp-content/plugins/
 
-# Ignore uploads, cache, backups
-wp-content/uploads/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/backups/
+# ── Ignore WordPress noise inside wp-content ─────────────────────────────────
+app/public/wp-content/uploads/
+app/public/wp-content/cache/
+app/public/wp-content/upgrade/
+app/public/wp-content/backups/
 
-# Ignore all themes/plugins
-wp-content/themes/*
-wp-content/plugins/*
+# ── Ignore all themes EXCEPT your custom one ─────────────────────────────────
+app/public/wp-content/themes/*
+!app/public/wp-content/themes/downside-up/
+!app/public/wp-content/themes/downside-up/**
 
-# Allow only your custom theme/plugin
-!wp-content/themes/downside-up/
-!wp-content/themes/downside-up/**
+# ── Ignore all plugins (add !exceptions here if needed) ──────────────────────
+app/public/wp-content/plugins/*
 
-!wp-content/plugins/downside-up-quiz/
-!wp-content/plugins/downside-up-quiz/**
+# ── Optional: allow mu-plugins if you use them ───────────────────────────────
+#!app/public/wp-content/mu-plugins/
+#!app/public/wp-content/mu-plugins/**
 
-# Optional: allow mu-plugins if you use them
-#!wp-content/mu-plugins/
-#!wp-content/mu-plugins/**
-
-# Ignore environment/config files
-wp-config.php
+# ── Ignore environment/config files ──────────────────────────────────────────
+app/public/wp-config.php
 .env
 .env.local
 
-# Ignore OS/editor junk
+# ── Ignore OS/editor junk ────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
 
-# Ignore logs
+# ── Ignore logs ──────────────────────────────────────────────────────────────
 *.log
 
-# Ignore node dependencies if using build tools
+# ── Ignore node dependencies if using build tools ────────────────────────────
 node_modules/
 
-# Ignore Composer vendor directory
+# ── Ignore Composer vendor directory ─────────────────────────────────────────
 vendor/
 
-# Ignore package lock files if desired
+# ── Ignore package lock files if desired ─────────────────────────────────────
 # package-lock.json
 # yarn.lock
