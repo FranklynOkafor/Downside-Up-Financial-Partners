@@ -4,16 +4,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-function downside_up_theme_setup() {
 
-    add_theme_support('title-tag');
+// REQUIRE ALL THE NECESSARY FILES FROM INC FOLDER
 
-    add_theme_support('post-thumbnails');
-
-    register_nav_menus([
-        'primary' => __('Primary Menu', 'downside-up')
-    ]);
-
-}
-
-add_action('after_setup_theme', 'downside_up_theme_setup');
+require_once get_template_directory() . '/inc/enqueue.php';
+require_once get_template_directory() . '/inc/theme-support.php';
+require_once get_template_directory() . '/inc/menus.php';
+require_once get_template_directory() . '/inc/helpers.php';
