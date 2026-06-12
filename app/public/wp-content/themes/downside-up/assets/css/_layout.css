@@ -1,0 +1,18 @@
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin-inline: auto;
+}
+
+.section {
+    padding-block: var(--space-4xl);
+}
+
+.grid {
+    display: grid;
+    gap: var(--space-xl);
+}
+
+.flex {
+    display: flex;
+}
