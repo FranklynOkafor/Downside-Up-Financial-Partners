@@ -1,27 +1,21 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The front page template.
+ *
+ * Assembles the homepage from individual, reusable template parts so each
+ * section can be iterated on (and later wired up to ACF) independently.
+ */
 
-<main>
-    <h1>Downside Up Financial Partners</h1>
+get_header();
+?>
 
-    <section class="section">
-        <div class="container">
-            <h2>Welcome to Downside Up</h2>
-            <p>Financial planning built for the modern world.</p>
-            <a href="#" class="btn btn-primary">Get Started</a>
-        </div>
-    </section>
+<?php get_template_part('template-parts/hero/hero-home'); ?>
+<?php get_template_part('template-parts/sections/trust-signals'); ?>
+<?php get_template_part('template-parts/sections/services'); ?>
+<?php get_template_part('template-parts/sections/why-us'); ?>
+<?php get_template_part('template-parts/sections/testimonials'); ?>
+<?php get_template_part('template-parts/sections/cta'); ?>
+<?php get_template_part('template-parts/sections/newsletter'); ?>
 
-
-
-    <h1>Heading 1</h1>
-
-    <h2>Heading 2</h2>
-
-    <p>Body Text</p>
-
-    <button class="btn btn-primary">
-        Book Consultation
-    </button>
-</main>
-
-<?php get_footer(); ?>
+<?php
+get_footer();

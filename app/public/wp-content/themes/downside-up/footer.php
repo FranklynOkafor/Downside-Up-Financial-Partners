@@ -1,14 +1,11 @@
-<footer class="site-footer">
+    </main>
 
-    <?php
-    get_template_part(
-        'template-parts/footer/footer-content'
-    );
-    ?>
+    <footer class="site-footer">
+        <div class="container">
+            <?php get_template_part('template-parts/footer/footer-content'); ?>
+        </div>
+    </footer>
 
-</footer>
-
-<?php wp_footer(); ?>
-
+    <?php wp_footer(); ?>
 </body>
 </html>
