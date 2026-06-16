@@ -10,6 +10,8 @@ if (!defined('ABSPATH')) {
 function downside_up_enqueue_assets()
 {
     $version = wp_get_theme()->get('Version');
+    $css_dir   = get_template_directory_uri() . '/assets/css/';
+    $js_dir    = get_template_directory_uri() . '/assets/js/';
 
     // Google Fonts used by the design system (Manrope for headings, Inter for body).
     wp_enqueue_style(
@@ -22,15 +24,15 @@ function downside_up_enqueue_assets()
     // Design tokens (CSS custom properties).
     wp_enqueue_style(
         'downside-up-variables',
-        get_template_directory_uri() . '/assets/css/_variable.css',
-        [],
+        $css_dir . '_variable.css',
+        ['downside-up-fonts'],
         $version
     );
 
     // Base typography rules.
     wp_enqueue_style(
         'downside-up-typography',
-        get_template_directory_uri() . '/assets/css/_typography.css',
+        $css_dir . '_typography.css',
         ['downside-up-variables'],
         $version
     );
@@ -38,7 +40,7 @@ function downside_up_enqueue_assets()
     // Layout: containers, sections, grids, header/footer structure.
     wp_enqueue_style(
         'downside-up-layout',
-        get_template_directory_uri() . '/assets/css/_layout.css',
+        $css_dir . '_layout.css',
         ['downside-up-typography'],
         $version
     );
@@ -46,7 +48,7 @@ function downside_up_enqueue_assets()
     // Reusable components: buttons, cards, nav, etc.
     wp_enqueue_style(
         'downside-up-components',
-        get_template_directory_uri() . '/assets/css/_components.css',
+        $css_dir . '_components.css',
         ['downside-up-layout'],
         $version
     );
@@ -54,7 +56,7 @@ function downside_up_enqueue_assets()
     // Global reset + base body styles.
     wp_enqueue_style(
         'downside-up-main',
-        get_template_directory_uri() . '/assets/css/main.css',
+        $css_dir . 'main.css',
         ['downside-up-components'],
         $version
     );
@@ -67,10 +69,19 @@ function downside_up_enqueue_assets()
         $version
     );
 
-    // Global JS (nav, carousels, etc.).
+
+    // Navigation JS.
+    wp_enqueue_script(
+        'downside-up-navigation',
+        $js_dir . 'navigation.js',
+        [],
+        $version,
+        true
+    );
+    // Global JS.
     wp_enqueue_script(
         'downside-up-main',
-        get_template_directory_uri() . '/assets/js/main.js',
+        $js_dir . 'main.js',
         [],
         $version,
         true
