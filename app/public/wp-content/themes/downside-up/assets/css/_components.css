@@ -25,6 +25,16 @@
     color: var(--color-white);
 }
 
+.btn--secondary {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
 .btn--primary:hover {
     background-color: var(--color-secondary);
 }

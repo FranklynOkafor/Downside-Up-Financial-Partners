@@ -6,7 +6,7 @@
                 <p>
                     <?php esc_html_e('Take our proprietary 5-minute Wealth Diagnostic to discover hidden inefficiencies in your current portfolio.', 'downside-up'); ?>
                 </p>
-                <a href="<?php echo esc_url(home_url('/start-assessment')); ?>" class="btn btn--primary">
+                <a href="<?php echo esc_url(home_url('/start-assessment')); ?>" class="btn btn--secondary">
                     <?php esc_html_e('Start Free Assessment', 'downside-up'); ?>
                 </a>
             </div>
