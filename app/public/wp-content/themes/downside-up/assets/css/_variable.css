@@ -1,0 +1,242 @@
+/* ==========================================================================
+   DESIGN SYSTEM — DESIGN TOKENS
+   Source: DESIGN.md ("Editorial Finance")
+   Every value below is copied verbatim from the DESIGN.md frontmatter/body.
+   Nothing here is invented — if a token isn't in DESIGN.md, it isn't here.
+   ========================================================================== */
+
+:root {
+
+    /* ==================================
+       COLORS — SURFACE
+    ================================== */
+    --surface: #FFFFFF;
+    --surface-dim: #d2dbe6;
+    --surface-bright: #f7f9ff;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #ecf4ff;
+    --surface-container: #e6effa;
+    --surface-container-high: #e0e9f4;
+    --surface-container-highest: #dae3ee;
+    --on-surface: #131d24;
+    --on-surface-variant: #42474c;
+    --inverse-surface: #28313a;
+    --inverse-on-surface: #e8f2fd;
+    --outline: #72787d;
+    --outline-variant: #c2c7cc;
+    --surface-tint: #3f6377;
+    --surface-variant: #dae3ee;
+    --surface-alt: #F1F3F2;
+
+    /* ==================================
+       COLORS — PRIMARY
+    ================================== */
+    --primary: #0e3649;
+    --on-primary: #ffffff;
+    --primary-container: #294d61;
+    --on-primary-container: #99bdd5;
+    --inverse-primary: #a7cbe3;
+    --primary-hover: #1F3C4C;
+
+    /* ==================================
+       COLORS — SECONDARY
+    ================================== */
+    --secondary: #476552;
+    --on-secondary: #ffffff;
+    --secondary-container: #c9ebd3;
+    --on-secondary-container: #4d6b58;
+
+    /* ==================================
+       COLORS — TERTIARY
+    ================================== */
+    --tertiary: #452e00;
+    --on-tertiary: #ffffff;
+    --tertiary-container: #624300;
+    --on-tertiary-container: #e0b05e;
+
+    /* ==================================
+       COLORS — ERROR
+    ================================== */
+    --error: #ba1a1a;
+    --on-error: #ffffff;
+    --error-container: #ffdad6;
+    --on-error-container: #93000a;
+
+    /* ==================================
+       COLORS — FIXED VARIANTS
+    ================================== */
+    --primary-fixed: #c4e7ff;
+    --primary-fixed-dim: #a7cbe3;
+    --on-primary-fixed: #001e2c;
+    --on-primary-fixed-variant: #274b5f;
+
+    --secondary-fixed: #c9ebd3;
+    --secondary-fixed-dim: #adceb8;
+    --on-secondary-fixed: #032112;
+    --on-secondary-fixed-variant: #2f4d3c;
+
+    --tertiary-fixed: #ffdeab;
+    --tertiary-fixed-dim: #f0bf6b;
+    --on-tertiary-fixed: #281900;
+    --on-tertiary-fixed-variant: #5f4100;
+
+    /* ==================================
+       COLORS — BACKGROUND / BODY / BORDER
+    ================================== */
+    --background: #F8F8F5;
+    --on-background: #131d24;
+    --border: #DCE3E7;
+    --text-body: #5B6874;
+
+    /* ==================================
+       COLORS — SEMANTIC / "TRAFFIC LIGHT"
+       Success/Elite: 90+ | Healthy: 75-89
+       Fragile: 60-74 (warning) | Critical: DTI>43% or high-APR debt
+    ================================== */
+    --success: #3D8B68;
+    --healthy: #63A66E;
+    --fragile: #D8AE46;
+    --critical: #C56D5A;
+
+    /* ==================================
+       TYPOGRAPHY — FONT FAMILIES
+       EB Garamond: storytelling / headings
+       Hanken Grotesk: UI / body copy
+       JetBrains Mono: financial data / scores
+    ================================== */
+    --font-serif: "EB Garamond", serif;
+    --font-sans: "Hanken Grotesk", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    /* ==================================
+       TYPOGRAPHY — SCALE
+    ================================== */
+
+    /* Display LG — hero statements on landing page */
+    --display-lg-family: var(--font-serif);
+    --display-lg-size: 64px;
+    --display-lg-weight: 500;
+    --display-lg-line: 72px;
+    --display-lg-tracking: -0.02em;
+
+    /* Display LG (mobile) */
+    --display-lg-mobile-family: var(--font-serif);
+    --display-lg-mobile-size: 40px;
+    --display-lg-mobile-weight: 500;
+    --display-lg-mobile-line: 48px;
+    --display-lg-mobile-tracking: -0.01em;
+
+    /* Headline XL */
+    --headline-xl-family: var(--font-serif);
+    --headline-xl-size: 48px;
+    --headline-xl-weight: 500;
+    --headline-xl-line: 56px;
+
+    /* Headline LG — "One Question" assessment titles */
+    --headline-lg-family: var(--font-serif);
+    --headline-lg-size: 32px;
+    --headline-lg-weight: 500;
+    --headline-lg-line: 40px;
+
+    /* Body LG — standard size for assessment questions */
+    --body-lg-family: var(--font-sans);
+    --body-lg-size: 18px;
+    --body-lg-weight: 400;
+    --body-lg-line: 28px;
+
+    /* Body MD */
+    --body-md-family: var(--font-sans);
+    --body-md-size: 16px;
+    --body-md-weight: 400;
+    --body-md-line: 24px;
+
+    /* Number Display — "Overall Standing" score */
+    --number-display-family: var(--font-mono);
+    --number-display-size: 32px;
+    --number-display-weight: 600;
+    --number-display-line: 32px;
+    --number-display-tracking: -0.05em;
+
+    /* Label Caps */
+    --label-caps-family: var(--font-sans);
+    --label-caps-size: 12px;
+    --label-caps-weight: 700;
+    --label-caps-line: 16px;
+    --label-caps-tracking: 0.05em;
+
+    /* Caption */
+    --caption-family: var(--font-sans);
+    --caption-size: 14px;
+    --caption-weight: 400;
+    --caption-line: 20px;
+
+    /* ==================================
+       SPACING — 4px base grid
+    ================================== */
+    --space-base: 4px;
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 48px;
+    --space-xl: 80px;
+    --space-gutter: 24px;
+    --space-margin-mobile: 16px;
+    --space-margin-desktop: 64px;
+
+    /* ==================================
+       CONTAINER WIDTHS
+    ================================== */
+    --container-max-width: 1280px;       /* 12-column dashboard/marketing grid */
+    --container-assessment-width: 640px; /* "One-at-a-time" assessment flow */
+
+    /* ==================================
+       BORDER RADIUS (rounded)
+    ================================== */
+    --radius-sm: 0.25rem;   /* 4px  — small components, inputs, chips (per "Standard Radius: 8px" note below use --radius) */
+    --radius: 0.5rem;       /* 8px  — DEFAULT / inputs & chips */
+    --radius-md: 0.75rem;   /* 12px */
+    --radius-lg: 1rem;      /* 16px — primary cards, dashboard widgets, primary buttons */
+    --radius-xl: 1.5rem;    /* 24px — main Assessment Container */
+    --radius-full: 9999px;  /* pill — status indicators, tags */
+
+    /* ==================================
+       SHADOWS / ELEVATION
+    ================================== */
+    --shadow-level-1: 0px 4px 20px rgba(27, 36, 44, 0.04);  /* Cards / Surface */
+    --shadow-level-2: 0px 12px 40px rgba(27, 36, 44, 0.08); /* Interactive / Overlays */
+    --backdrop-blur-level-2: 8px;                            /* modal backdrop blur */
+
+    /* ==================================
+       TRANSITIONS / ANIMATION
+    ================================== */
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* all transitions, per dev handoff notes */
+    --transition-fast: 150ms var(--ease-standard);
+    --transition-normal: 250ms var(--ease-standard);
+    --transition-slow: 400ms var(--ease-standard);
+    --auto-advance-delay: 400ms; /* assessment radio select -> auto-advance */
+
+    /* ==================================
+       BREAKPOINTS
+       NOTE: CSS custom properties cannot be read inside @media conditions.
+       These are kept here for reference/JS use; author @media rules with the
+       literal px values shown (768px / 1024px) as documented in DESIGN.md.
+    ================================== */
+    --breakpoint-mobile: 768px;  /* < 768px: single column, 16px margins */
+    --breakpoint-tablet: 1024px; /* 768-1024px: 8 columns, 24px margins  */
+    /* > 1024px (desktop): 12 columns, 64px margins */
+
+    /* ==================================
+       BORDERS
+    ================================== */
+    --border-width: 1px; /* inputs & secondary buttons */
+
+    /* ==================================
+       COMPONENT-SPECIFIC TOKENS
+    ================================== */
+    --gauge-stroke-width: 12px;   /* semi-circular metric gauges, rounded cap */
+    --progress-bar-height: 4px;  /* thin linear bar at top of assessment viewport */
+    --slider-thumb-size: 24px;   /* "Reality Check" slider thumb, white circle */
+    --btn-padding-y: 16px;       /* Primary/Secondary button vertical padding */
+    --btn-padding-x: 32px;       /* Primary/Secondary button horizontal padding */
+    --btn-radius: var(--radius-lg); /* 16px, per Controls > Buttons spec */
+}

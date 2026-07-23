@@ -1,0 +1,98 @@
+/* ==========================================================================
+   TYPOGRAPHY — utility classes built on tokens from _variable.css
+   Pairing: EB Garamond (literary) x Hanken Grotesk (UI/body) x JetBrains Mono (data)
+   ========================================================================== */
+
+/* ---- Base document defaults ---- */
+body {
+    font-family: var(--font-sans);
+    font-size: var(--body-md-size);
+    font-weight: var(--body-md-weight);
+    line-height: var(--body-md-line);
+    color: var(--text-body);
+    background-color: var(--background);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    color: var(--on-background);
+    margin: 0 0 var(--space-sm);
+}
+
+/* ---- Display LG ---- */
+.du-text-display-lg {
+    font-family: var(--display-lg-family);
+    font-size: var(--display-lg-size);
+    font-weight: var(--display-lg-weight);
+    line-height: var(--display-lg-line);
+    letter-spacing: var(--display-lg-tracking);
+}
+@media (max-width: 767px) {
+    .du-text-display-lg {
+        font-size: var(--display-lg-mobile-size);
+        font-weight: var(--display-lg-mobile-weight);
+        line-height: var(--display-lg-mobile-line);
+        letter-spacing: var(--display-lg-mobile-tracking);
+    }
+}
+
+/* ---- Headline XL ---- */
+.du-text-headline-xl {
+    font-family: var(--headline-xl-family);
+    font-size: var(--headline-xl-size);
+    font-weight: var(--headline-xl-weight);
+    line-height: var(--headline-xl-line);
+}
+
+/* ---- Headline LG ---- */
+.du-text-headline-lg {
+    font-family: var(--headline-lg-family);
+    font-size: var(--headline-lg-size);
+    font-weight: var(--headline-lg-weight);
+    line-height: var(--headline-lg-line);
+}
+
+/* ---- Body LG ---- */
+.du-text-body-lg {
+    font-family: var(--body-lg-family);
+    font-size: var(--body-lg-size);
+    font-weight: var(--body-lg-weight);
+    line-height: var(--body-lg-line);
+}
+
+/* ---- Body MD ---- */
+.du-text-body-md {
+    font-family: var(--body-md-family);
+    font-size: var(--body-md-size);
+    font-weight: var(--body-md-weight);
+    line-height: var(--body-md-line);
+}
+
+/* ---- Number Display — financial data / scores, JetBrains Mono ---- */
+.du-text-number-display {
+    font-family: var(--number-display-family);
+    font-size: var(--number-display-size);
+    font-weight: var(--number-display-weight);
+    line-height: var(--number-display-line);
+    letter-spacing: var(--number-display-tracking);
+    /* "must scale with the viewport to prevent overflow on mobile" — dev handoff note */
+    font-size: clamp(1.5rem, 5vw, var(--number-display-size));
+}
+
+/* ---- Label Caps ---- */
+.du-text-label-caps {
+    font-family: var(--label-caps-family);
+    font-size: var(--label-caps-size);
+    font-weight: var(--label-caps-weight);
+    line-height: var(--label-caps-line);
+    letter-spacing: var(--label-caps-tracking);
+    text-transform: uppercase;
+}
+
+/* ---- Caption ---- */
+.du-text-caption {
+    font-family: var(--caption-family);
+    font-size: var(--caption-size);
+    font-weight: var(--caption-weight);
+    line-height: var(--caption-line);
+}

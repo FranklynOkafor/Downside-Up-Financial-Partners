@@ -1,0 +1,54 @@
+/* ==========================================================================
+   BUTTONS — Controls
+   Primary:   Solid #294D61 (--primary-container), white text, 16px radius,
+              padding 16px 32px
+   Secondary: Outlined #DCE3E7 (--border), #294D61 (--primary-container) text
+   ========================================================================== */
+
+.du-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    font-family: var(--font-sans);
+    font-size: var(--body-md-size);
+    font-weight: 600;
+    line-height: 1;
+    padding: var(--btn-padding-y) var(--btn-padding-x);
+    border-radius: var(--btn-radius);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color var(--transition-normal),
+                color var(--transition-normal),
+                border-color var(--transition-normal);
+}
+
+.du-btn:disabled,
+.du-btn[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* ---- Primary ---- */
+.du-btn--primary {
+    background-color: var(--primary-container);
+    color: var(--on-primary);
+    border: var(--border-width) solid transparent;
+}
+
+.du-btn--primary:hover,
+.du-btn--primary:focus-visible {
+    background-color: var(--primary-hover);
+}
+
+/* ---- Secondary ---- */
+.du-btn--secondary {
+    background-color: transparent;
+    color: var(--primary-container);
+    border: var(--border-width) solid var(--border);
+}
+
+.du-btn--secondary:hover,
+.du-btn--secondary:focus-visible {
+    background-color: var(--surface-container-low);
+}

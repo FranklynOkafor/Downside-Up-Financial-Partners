@@ -1,0 +1,47 @@
+/* ==========================================================================
+   ANIMATIONS
+   DESIGN.md specifies three concrete animation behaviors:
+     1. All transitions use cubic-bezier(0.4, 0, 0.2, 1)      -> --ease-standard
+     2. Assessment auto-advance waits 400ms after selection    -> --auto-advance-delay
+     3. Progress bars "animate smoothly" between questions     -> width/transform transition
+   The keyframes/utility classes below are generic implementations of those
+   three behaviors only — no new visual effects are invented beyond them.
+   ========================================================================== */
+
+/* ---- 1. Global transition utility, using the mandated easing curve ---- */
+.du-transition {
+    transition-timing-function: var(--ease-standard);
+    transition-duration: var(--transition-normal);
+}
+.du-transition--fast   { transition-duration: var(--transition-fast); }
+.du-transition--slow   { transition-duration: var(--transition-slow); }
+
+/* ---- 2. Assessment progress bar (thin, top of viewport, animates on change) ---- */
+.du-progress-bar {
+    width: 100%;
+    height: var(--progress-bar-height);
+    background-color: var(--surface-alt);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+.du-progress-bar__fill {
+    height: 100%;
+    background-color: var(--primary-container);
+    transition: width var(--transition-slow);
+}
+
+/* ---- 3. Semi-circular gauge stroke transition (thick stroke, rounded cap) ---- */
+.du-gauge__value {
+    stroke-width: var(--gauge-stroke-width);
+    stroke-linecap: round;
+    transition: stroke-dashoffset var(--transition-slow);
+}
+.du-gauge__track {
+    stroke-width: var(--gauge-stroke-width);
+    stroke: var(--surface-alt);
+}
+
+/* ---- Auto-advance delay as a CSS custom property, for use in JS timers ----
+   Example (JS): setTimeout(next, getComputedStyle(el)
+     .getPropertyValue('--auto-advance-delay')); // "400ms" string, parse as needed
+   Kept here rather than hardcoded so the 400ms value only lives in one place. */
