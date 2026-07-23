@@ -1,0 +1,163 @@
+/* ==========================================================================
+   HEADER
+   Wordmark + Primary Menu (How It Works / About / Services / Platform)
+   + Login + Start Assessment CTA. Sticky, white surface, hairline bottom
+   border per the homepage mockup.
+   ========================================================================== */
+
+.du-header {
+    background-color: var(--surface);
+    border-bottom: var(--border-width) solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.du-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+}
+
+/* ---- Site branding / wordmark ----
+   NOTE: DESIGN.md's type scale doesn't define a dedicated "logo" size
+   (its smallest heading token is headline-lg at 32px, too large here).
+   1.25rem/500 is a conservative in-between value, not a spec token —
+   flag if you have an exact logo size to lock this to. */
+.du-site-branding__link {
+    text-decoration: none;
+}
+
+.du-site-branding__logo {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: var(--headline-lg-weight);
+    color: var(--on-background);
+}
+
+/* ---- Nav wrapper ---- */
+.du-nav {
+    display: flex;
+    align-items: center;
+}
+
+.du-nav__menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.du-nav__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.du-nav__list a {
+    font-family: var(--font-sans);
+    font-size: var(--body-md-size);
+    color: var(--text-body);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.du-nav__list a:hover,
+.du-nav__list a:focus-visible {
+    color: var(--primary-container);
+}
+
+/* ---- Login + CTA ---- */
+.du-nav__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.du-nav__login {
+    font-family: var(--font-sans);
+    font-size: var(--body-md-size);
+    color: var(--text-body);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    white-space: nowrap;
+}
+
+.du-nav__login:hover,
+.du-nav__login:focus-visible {
+    color: var(--primary-container);
+}
+
+.du-nav__cta {
+    white-space: nowrap;
+}
+
+/* ---- Mobile toggle (hidden on desktop) ---- */
+.du-nav__toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: var(--space-xs);
+    color: var(--on-background);
+    cursor: pointer;
+}
+
+.du-nav__icon--close {
+    display: none;
+}
+
+.du-nav__toggle[aria-expanded="true"] .du-nav__icon--open {
+    display: none;
+}
+
+.du-nav__toggle[aria-expanded="true"] .du-nav__icon--close {
+    display: block;
+}
+
+/* ---- Breakpoint: mobile < 768px, per DESIGN.md ---- */
+@media (max-width: 767px) {
+    .du-nav__toggle {
+        display: inline-flex;
+    }
+
+    .du-nav__menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+        background-color: var(--surface);
+        border-bottom: var(--border-width) solid var(--border);
+        padding: var(--space-md) var(--space-margin-mobile) var(--space-lg);
+    }
+
+    .du-nav__menu.is-open {
+        display: flex;
+    }
+
+    .du-nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        width: 100%;
+    }
+
+    .du-nav__actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        width: 100%;
+    }
+
+    .du-nav__cta {
+        width: 100%;
+        text-align: center;
+    }
+}

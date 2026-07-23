@@ -8,10 +8,13 @@ if (!defined('ABSPATH')) {
 
 
 // Register navigation menus
-function menu_setup() {
+function menu_setup()
+{
     register_nav_menus([
-        'primary'   => __('Primary Navigation', 'downside-up'),
-        'footer'    => __('Footer Navigation', 'downside-up'),
+        'primary'         => __('Primary Menu', 'downside-up'),
+        'footer-platform' => __('Platform', 'downside-up'),
+        'footer-customer' => __('Customer', 'downside-up'),
+        'footer-legal'    => __('Legal', 'downside-up'),
         'mobile'    => __('Mobile Navigation', 'downside-up'),
     ]);
 }

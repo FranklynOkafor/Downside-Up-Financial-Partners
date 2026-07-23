@@ -1,0 +1,127 @@
+/* ==========================================================================
+   FOOTER
+   Brand/tagline + Platform / Customer / Legal / Social columns + copyright
+   bar, per the homepage mockup.
+   ========================================================================== */
+
+.du-footer {
+    background-color: var(--surface);
+    border-top: var(--border-width) solid var(--border);
+}
+
+.du-footer__inner {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+}
+
+.du-footer__grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(4, 1fr);
+    gap: var(--space-lg);
+}
+
+/* ---- Brand column ---- */
+.du-footer__brand {
+    max-width: 320px;
+}
+
+.du-footer__logo {
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-size: 1.25rem; /* see note in _header.css re: no logo token in DESIGN.md */
+    font-weight: var(--headline-lg-weight);
+    color: var(--on-background);
+    text-decoration: none;
+    margin-bottom: var(--space-xs);
+}
+
+.du-footer__tagline {
+    font-family: var(--font-sans);
+    font-size: var(--caption-size);
+    line-height: var(--caption-line);
+    color: var(--text-body);
+    margin: 0;
+}
+
+/* ---- Link columns: Platform / Customer / Legal / Social ---- */
+.du-footer__heading {
+    color: var(--on-surface-variant);
+    margin: 0 0 var(--space-sm);
+}
+
+.du-footer__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.du-footer__list a {
+    font-family: var(--font-sans);
+    font-size: var(--caption-size);
+    color: var(--text-body);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.du-footer__list a:hover,
+.du-footer__list a:focus-visible {
+    color: var(--primary-container);
+}
+
+/* ---- Social ---- */
+.du-footer__social {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.du-footer__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    border: var(--border-width) solid var(--border);
+    color: var(--on-surface-variant);
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.du-footer__social-link:hover,
+.du-footer__social-link:focus-visible {
+    border-color: var(--primary-container);
+    color: var(--primary-container);
+}
+
+/* ---- Copyright bar ---- */
+.du-footer__bottom {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: var(--border-width) solid var(--border);
+    text-align: center;
+}
+
+.du-footer__copyright {
+    color: var(--text-body);
+    margin: 0;
+}
+
+/* ---- Breakpoints, per DESIGN.md ---- */
+@media (max-width: 1023px) {
+    .du-footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .du-footer__brand {
+        grid-column: 1 / -1;
+        max-width: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .du-footer__grid {
+        grid-template-columns: 1fr;
+    }
+}

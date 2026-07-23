@@ -1,0 +1,38 @@
+/* ==========================================================================
+   LAYOUT — foundational utilities
+   Only what header/footer need right now (container + sr-only).
+   The full 12-column dashboard grid / assessment container system is not
+   built yet — flag if you want that added before other pages are built.
+   ========================================================================== */
+
+.du-container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-margin-mobile);
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .du-container {
+        padding-inline: var(--space-md);
+    }
+}
+
+@media (min-width: 1025px) {
+    .du-container {
+        padding-inline: var(--space-margin-desktop);
+    }
+}
+
+/* Visually hidden but accessible to assistive tech */
+.du-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

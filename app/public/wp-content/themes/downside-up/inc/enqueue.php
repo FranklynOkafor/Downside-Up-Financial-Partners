@@ -38,6 +38,13 @@ function downside_up_enqueue_assets()
     // 7. style.css last — theme header + page-level overrides
     wp_enqueue_style('du-main', get_stylesheet_uri(), ['du-animations'], $theme_version);
 
+    // 8. Header
+    wp_enqueue_style('du-header', $theme_uri . '/assets/css/_header.css', ['du-components'], $theme_version);
+
+    // 9. Footer
+    wp_enqueue_style('du-footer', $theme_uri . '/assets/css/_footer.css', ['du-header'], $theme_version);
+
+
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
     wp_enqueue_script('du-main', $theme_uri . '/assets/js/main.js', [], $theme_version, true);
