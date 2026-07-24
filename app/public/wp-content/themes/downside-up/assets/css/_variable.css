@@ -36,7 +36,7 @@
     --primary-container: #294d61;
     --on-primary-container: #99bdd5;
     --inverse-primary: #a7cbe3;
-    --primary-hover: #1F3C4C;
+    --primary-hover: #5098be;
 
     /* ==================================
        COLORS — SECONDARY
@@ -86,7 +86,7 @@
     --background: #F8F8F5;
     --on-background: #131d24;
     --border: #DCE3E7;
-    --text-body: #5B6874;
+    --text-body: #3c444d;
 
     /* ==================================
        COLORS — SEMANTIC / "TRAFFIC LIGHT"
@@ -140,13 +140,13 @@
 
     /* Body LG — standard size for assessment questions */
     --body-lg-family: var(--font-sans);
-    --body-lg-size: 18px;
+    --body-lg-size: 20px;
     --body-lg-weight: 400;
     --body-lg-line: 28px;
 
     /* Body MD */
     --body-md-family: var(--font-sans);
-    --body-md-size: 16px;
+    --body-md-size: 18px;
     --body-md-weight: 400;
     --body-md-line: 24px;
 
@@ -159,14 +159,14 @@
 
     /* Label Caps */
     --label-caps-family: var(--font-sans);
-    --label-caps-size: 12px;
+    --label-caps-size: 14px;
     --label-caps-weight: 700;
     --label-caps-line: 16px;
     --label-caps-tracking: 0.05em;
 
     /* Caption */
     --caption-family: var(--font-sans);
-    --caption-size: 14px;
+    --caption-size: 16px;
     --caption-weight: 400;
     --caption-line: 20px;
 

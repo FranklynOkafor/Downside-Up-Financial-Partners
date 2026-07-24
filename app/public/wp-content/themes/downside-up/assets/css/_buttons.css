@@ -38,7 +38,7 @@
 
 .du-btn--primary:hover,
 .du-btn--primary:focus-visible {
-    background-color: var(--primary-hover);
+    background-color: var(--secondary);
 }
 
 /* ---- Secondary ---- */
