@@ -1,8 +1,18 @@
 /* ==========================================================================
-   HEADER
-   Wordmark + Primary Menu (How It Works / About / Services / Platform)
-   + Login + Start Assessment CTA. Sticky, white surface, hairline bottom
-   border per the homepage mockup.
+   HEADER — mobile-first
+   Mobile + Tablet (< 1025px): hamburger toggle, dropdown menu.
+   Desktop (>= 1025px, matches _layout.css's container breakpoint): 3-column
+   grid — logo (left) | Primary Menu (centered) | Login + Start Assessment
+   (right).
+
+   NOTE ON BREAKPOINT: DESIGN.md's own "tablet" range is 768-1024px, and it
+   would be tempting to switch to the full inline nav at 768px. But the
+   actual content — logo + 4 nav links + "Login" + a "Start Assessment"
+   button with 16px/32px padding — needs roughly 800-850px just for itself,
+   before any container padding. At 768-1023px that overflowed the header
+   and forced a page-wide horizontal scrollbar. Using 1025px (this system's
+   existing desktop threshold, see _layout.css) is the first point with
+   enough room to spare.
    ========================================================================== */
 
 .du-header {
@@ -15,47 +25,105 @@
 
 .du-header__inner {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    column-gap: var(--space-md);
     padding-top: var(--space-sm);
     padding-bottom: var(--space-sm);
+    position: relative;
 }
 
-/* ---- Site branding / wordmark ----
-   NOTE: DESIGN.md's type scale doesn't define a dedicated "logo" size
+/* ---- Site branding: logo image stacked above the wordmark ---- */
+.du-site-branding__link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-base);
+    text-decoration: none;
+    min-width: 0; /* lets the wordmark truncate/wrap instead of forcing overflow */
+}
+
+.du-site-branding__image-wrap {
+    display: block;
+    line-height: 0;
+}
+
+.du-site-branding__image {
+    display: block;
+    height: 32px;
+    width: auto;
+}
+
+/* NOTE: DESIGN.md's type scale doesn't define a dedicated "logo" size
    (its smallest heading token is headline-lg at 32px, too large here).
    1.25rem/500 is a conservative in-between value, not a spec token —
    flag if you have an exact logo size to lock this to. */
-.du-site-branding__link {
-    text-decoration: none;
-}
-
 .du-site-branding__logo {
     font-family: var(--font-serif);
     font-size: 1.25rem;
     font-weight: var(--headline-lg-weight);
     color: var(--on-background);
+    white-space: nowrap;
 }
 
-/* ---- Nav wrapper ---- */
+/* ---- Mobile toggle ---- */
+.du-nav__toggle {
+    display: inline-flex;
+    background: none;
+    border: none;
+    padding: var(--space-xs);
+    color: var(--on-background);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.du-nav__icon--close {
+    display: none;
+}
+
+.du-nav__toggle[aria-expanded="true"] .du-nav__icon--open {
+    display: none;
+}
+
+.du-nav__toggle[aria-expanded="true"] .du-nav__icon--close {
+    display: block;
+}
+
+/* ---- Nav + dropdown menu (mobile/tablet default) ---- */
 .du-nav {
-    display: flex;
-    align-items: center;
+    display: block;
+    position: static;
 }
 
 .du-nav__menu {
+    display: none;
+}
+
+.du-nav__menu.is-open {
     display: flex;
-    align-items: center;
-    gap: var(--space-lg);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--surface);
+    border-bottom: var(--border-width) solid var(--border);
+    padding: var(--space-md) var(--space-margin-mobile) var(--space-lg);
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .du-nav__list {
     display: flex;
-    align-items: center;
-    gap: var(--space-md);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 .du-nav__list a {
@@ -71,11 +139,12 @@
     color: var(--primary-container);
 }
 
-/* ---- Login + CTA ---- */
 .du-nav__actions {
     display: flex;
-    align-items: center;
-    gap: var(--space-md);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    width: 100%;
 }
 
 .du-nav__login {
@@ -93,71 +162,51 @@
 }
 
 .du-nav__cta {
-    white-space: nowrap;
+    width: 100%;
+    text-align: center;
 }
 
-/* ---- Mobile toggle (hidden on desktop) ---- */
-.du-nav__toggle {
-    display: none;
-    background: none;
-    border: none;
-    padding: var(--space-xs);
-    color: var(--on-background);
-    cursor: pointer;
-}
+/* ==========================================================================
+   DESKTOP — >= 1025px
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .du-header__inner {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        justify-content: initial;
+    }
 
-.du-nav__icon--close {
-    display: none;
-}
-
-.du-nav__toggle[aria-expanded="true"] .du-nav__icon--open {
-    display: none;
-}
-
-.du-nav__toggle[aria-expanded="true"] .du-nav__icon--close {
-    display: block;
-}
-
-/* ---- Breakpoint: mobile < 768px, per DESIGN.md ---- */
-@media (max-width: 767px) {
     .du-nav__toggle {
-        display: inline-flex;
-    }
-
-    .du-nav__menu {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-md);
-        background-color: var(--surface);
-        border-bottom: var(--border-width) solid var(--border);
-        padding: var(--space-md) var(--space-margin-mobile) var(--space-lg);
     }
 
-    .du-nav__menu.is-open {
-        display: flex;
+    /* Let the nav wrapper + menu "disappear" so their children (the link
+       list and the actions) become direct items of the header grid —
+       list centered in column 2, actions pinned to column 3. */
+    .du-nav,
+    .du-nav__menu {
+        display: contents;
     }
 
     .du-nav__list {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-sm);
-        width: 100%;
+        grid-column: 2;
+        justify-self: center;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-md);
+        width: auto;
     }
 
     .du-nav__actions {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-sm);
-        width: 100%;
+        grid-column: 3;
+        justify-self: end;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-md);
+        width: auto;
     }
 
     .du-nav__cta {
-        width: 100%;
-        text-align: center;
+        width: auto;
     }
 }

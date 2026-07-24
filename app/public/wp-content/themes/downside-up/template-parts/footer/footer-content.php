@@ -25,8 +25,12 @@ $du_footer_columns = [
     <div class="du-footer__grid">
 
         <div class="du-footer__brand">
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="du-footer__logo" rel="home">
-                <?php esc_html_e('DownSide Up', 'downside-up'); ?>
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="du-footer__logo-link" rel="home">
+                <?php $du_footer_logo = downside_up_logo_image(['class' => 'du-footer__logo-image']); ?>
+                <?php if ($du_footer_logo) : ?>
+                    <span class="du-footer__logo-image-wrap"><?php echo $du_footer_logo; ?></span>
+                <?php endif; ?>
+                <span class="du-footer__logo"><?php esc_html_e('DownSide Up', 'downside-up'); ?></span>
             </a>
             <p class="du-footer__tagline">
                 <?php esc_html_e('Redefining financial introspection for the modern era. Institutional analysis with a modern touch.', 'downside-up'); ?>

@@ -1,7 +1,8 @@
 /* ==========================================================================
-   FOOTER
+   FOOTER — mobile-first
    Brand/tagline + Platform / Customer / Legal / Social columns + copyright
-   bar, per the homepage mockup.
+   bar, per the homepage mockup. Breakpoints match _layout.css exactly:
+   mobile < 768px, tablet 768-1024px, desktop >= 1025px.
    ========================================================================== */
 
 .du-footer {
@@ -14,9 +15,10 @@
     padding-bottom: var(--space-lg);
 }
 
+/* Mobile default: single column, everything stacked */
 .du-footer__grid {
     display: grid;
-    grid-template-columns: 2fr repeat(4, 1fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-lg);
 }
 
@@ -25,14 +27,31 @@
     max-width: 320px;
 }
 
+.du-footer__logo-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-base);
+    text-decoration: none;
+    margin-bottom: var(--space-xs);
+}
+
+.du-footer__logo-image-wrap {
+    display: block;
+    line-height: 0;
+}
+
+.du-footer__logo-image {
+    display: block;
+    height: 32px;
+    width: auto;
+}
+
 .du-footer__logo {
-    display: inline-block;
     font-family: var(--font-serif);
     font-size: 1.25rem; /* see note in _header.css re: no logo token in DESIGN.md */
     font-weight: var(--headline-lg-weight);
     color: var(--on-background);
-    text-decoration: none;
-    margin-bottom: var(--space-xs);
 }
 
 .du-footer__tagline {
@@ -83,6 +102,7 @@
     justify-content: center;
     width: 36px;
     height: 36px;
+    flex-shrink: 0;
     border-radius: var(--radius-full);
     border: var(--border-width) solid var(--border);
     color: var(--on-surface-variant);
@@ -108,10 +128,12 @@
     margin: 0;
 }
 
-/* ---- Breakpoints, per DESIGN.md ---- */
-@media (max-width: 1023px) {
+/* ==========================================================================
+   TABLET — 768-1024px: 2 columns, brand spans the full row
+   ========================================================================== */
+@media (min-width: 768px) {
     .du-footer__grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .du-footer__brand {
@@ -120,8 +142,16 @@
     }
 }
 
-@media (max-width: 767px) {
+/* ==========================================================================
+   DESKTOP — >= 1025px: brand column + 4 link columns
+   ========================================================================== */
+@media (min-width: 1025px) {
     .du-footer__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(240px, 2fr) repeat(4, minmax(0, 1fr));
+    }
+
+    .du-footer__brand {
+        grid-column: auto;
+        max-width: 320px;
     }
 }

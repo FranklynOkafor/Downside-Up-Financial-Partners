@@ -7,7 +7,12 @@ Version: 1.0.0
 Text Domain: downside-up
 */
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
+/*
+   All actual styling lives in the design-system partials
+   (assets/css/_variable.css, _typography.css, _layout.css, etc.),
+   loaded via inc/enqueue.php. Nothing else belongs in this file —
+   it previously had `body { font-family: Arial, sans-serif; }` here,
+   and because this file is enqueued LAST in the dependency chain,
+   that rule was silently overriding every font-family set in
+   _typography.css on every page, including the header and footer.
+*/

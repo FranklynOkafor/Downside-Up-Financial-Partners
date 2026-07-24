@@ -5,6 +5,27 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Renders the site's custom logo image (set under Appearance > Customize >
+ * Site Identity), or an empty string if none has been uploaded yet.
+ * Usage: echo downside_up_logo_image( [ 'class' => 'du-site-branding__image' ] );
+ */
+function downside_up_logo_image($args = [])
+{
+    $logo_id = get_theme_mod('custom_logo');
+
+    if (!$logo_id) {
+        return '';
+    }
+
+    $defaults = ['class' => 'du-logo-image'];
+    $args = wp_parse_args($args, $defaults);
+
+    return wp_get_attachment_image($logo_id, 'full', false, [
+        'class' => $args['class'],
+    ]);
+}
+
+/**
  * Central helper for inline SVG icons.
  * Usage: echo downside_up_icon( 'menu', [ 'class' => 'du-nav__icon' ] );
  */

@@ -5,6 +5,36 @@
    built yet — flag if you want that added before other pages are built.
    ========================================================================== */
 
+/* ---- GLOBAL BOX-MODEL RESET ----
+   This was missing entirely, and it's the direct cause of the horizontal
+   scrollbar: .du-container below sets `width: 100%` AND
+   `padding-inline: var(--space-margin-desktop)` (64px a side). Under the
+   browser default (content-box), padding is ADDED on top of that 100%
+   width, so the container became 128px wider than the viewport on every
+   page that uses it — including the header and footer. box-sizing:
+   border-box makes width include padding+border, which is what every
+   width:100% + padding combination in this system assumes. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden; /* safety net only — box-sizing above is the real fix */
+}
+
+img,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
 .du-container {
     width: 100%;
     max-width: var(--container-max-width);

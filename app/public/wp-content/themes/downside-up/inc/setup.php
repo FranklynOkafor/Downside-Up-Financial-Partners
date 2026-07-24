@@ -20,8 +20,8 @@ function downside_up_setup() {
 
     // Custom logo — enables the custom logo option in Customizer
     add_theme_support('custom-logo', [
-        'height'      => 100,
-        'width'       => 300,
+        'height'      => 60,
+        'width'       => 60,
         'flex-height' => true,
         'flex-width'  => true,
     ]);
