@@ -1,0 +1,173 @@
+/* ==========================================================================
+   CTA — single card + carousel
+   Visual reference: existing homepage closing CTA (dark --primary card,
+   serif headline, centered layout, pill buttons). Reused here so the
+   persona CTAs feel like they were always part of the site.
+   ========================================================================== */
+
+/* ---- Card ---- */
+.du-cta {
+    background-color: var(--primary);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    width: 90%;
+    margin: 30px auto 20px;
+}
+
+.du-cta__inner {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.du-cta__headline {
+    color: var(--on-primary);
+    max-width: 30ch;
+    margin: 0 0 var(--space-md);
+}
+
+.du-cta__description {
+    color: var(--on-primary-container);
+    max-width: 75ch;
+    margin: 0 0 var(--space-lg);
+}
+
+.du-cta__actions {
+    margin-bottom: var(--space-md);
+}
+
+.du-cta__supporting {
+    color: var(--on-primary-container);
+    margin: 0 0 var(--space-sm);
+}
+
+.du-cta__secondary-link {
+    font-family: var(--font-sans);
+    font-size: var(--caption-size);
+    color: var(--on-primary-container);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast);
+}
+
+.du-cta__secondary-link:hover,
+.du-cta__secondary-link:focus-visible {
+    color: var(--on-primary);
+}
+
+/* ==========================================================================
+   CAROUSEL
+   ========================================================================== */
+
+.du-cta-carousel {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+}
+
+/* All slides share one grid cell and crossfade — this is what guarantees
+   equal height across every persona's copy length without measuring
+   anything in JS, and avoids any layout shift when slides change. */
+.du-cta-carousel__track {
+    display: grid;
+}
+
+.du-cta-carousel__track .du-cta--slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition-slow);
+}
+
+.du-cta-carousel__track .du-cta--slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .du-cta-carousel__track .du-cta--slide {
+        transition: none;
+    }
+}
+
+/* ---- Controls: prev / dots / next ---- */
+.du-cta-carousel__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.du-cta-carousel__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    border: var(--border-width) solid var(--border);
+    background-color: var(--surface);
+    color: var(--on-surface-variant);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.du-cta-carousel__arrow:hover,
+.du-cta-carousel__arrow:focus-visible {
+    border-color: var(--primary-container);
+    color: var(--primary-container);
+}
+
+.du-cta-carousel__dots {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.du-cta-carousel__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: var(--radius-full);
+    background-color: var(--outline-variant);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.du-cta-carousel__dot:hover,
+.du-cta-carousel__dot:focus-visible {
+    background-color: var(--primary-container);
+}
+
+.du-cta-carousel__dot[aria-selected="true"] {
+    background-color: var(--primary-container);
+    transform: scale(1.3);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 767px) {
+    .du-cta__inner {
+        padding-top: var(--space-lg);
+        padding-bottom: var(--space-lg);
+    }
+
+    .du-cta__actions {
+        width: 100%;
+    }
+
+    .du-cta__primary {
+        width: 100%;
+    }
+
+    .du-cta-carousel__controls {
+        gap: var(--space-sm);
+    }
+}

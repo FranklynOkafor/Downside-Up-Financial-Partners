@@ -52,3 +52,22 @@
 .du-btn--secondary:focus-visible {
     background-color: var(--surface-container-low);
 }
+
+
+/* ---- Inverse ----
+   Not in DESIGN.md's Controls spec, which only defines Primary/Secondary
+   for a light page background. Needed here because the CTA card itself
+   IS the dark surface (--primary), so a solid --primary-container button
+   would nearly disappear against it. Built from existing tokens only:
+   --surface (white) bg + --primary-container text, same radius/padding
+   as Primary so it reads as the same button family, just inverted. */
+.du-btn--inverse {
+    background-color: var(--surface);
+    color: var(--primary-container);
+    border: var(--border-width) solid transparent;
+}
+
+.du-btn--inverse:hover,
+.du-btn--inverse:focus-visible {
+    background-color: var(--surface-container-low);
+}

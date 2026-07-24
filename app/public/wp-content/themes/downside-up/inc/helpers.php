@@ -46,6 +46,10 @@ function downside_up_icon($name, $args = [])
         'linkedin' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8.5h4.6V23H.2V8.5zM8.3 8.5h4.4v2h.06c.61-1.16 2.12-2.38 4.36-2.38C21.7 8.12 23 10.4 23 14.2V23h-4.6v-7.6c0-1.8-.03-4.12-2.5-4.12-2.51 0-2.9 1.96-2.9 3.98V23H8.3V8.5z"/></svg>',
 
         'x-twitter' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-6.9l-5.4-6.6L4.8 22H1.7l8.1-9.3L1 2h7.1l4.9 6.1L18.9 2zm-1.2 18h1.9L7.4 4H5.4l12.3 16z"/></svg>',
+
+        'chevron-left' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>',
+
+        'chevron-right' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>',
     ];
 
     if (!isset($icons[$name])) {

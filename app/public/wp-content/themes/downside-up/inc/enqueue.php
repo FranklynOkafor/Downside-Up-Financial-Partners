@@ -43,10 +43,14 @@ function downside_up_enqueue_assets()
 
     // 9. Footer
     wp_enqueue_style('du-footer', $theme_uri . '/assets/css/_footer.css', ['du-header'], $theme_version);
+    
+    // 9b. CTA (single card + carousel)
+    wp_enqueue_style('du-cta', $theme_uri . '/assets/css/_cta.css', ['du-footer'], $theme_version);
 
 
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
+    wp_enqueue_script('du-cta-carousel', $theme_uri . '/assets/js/cta-carousel.js', [], $theme_version, true);
     wp_enqueue_script('du-main', $theme_uri . '/assets/js/main.js', [], $theme_version, true);
 }
 

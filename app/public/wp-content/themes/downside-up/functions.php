@@ -16,6 +16,12 @@ require_once get_template_directory() . '/inc/sidebars.php';
 require_once get_template_directory() . '/inc/template-functions.php';
 
 
+// Require the files for CTA
+require_once get_template_directory() . '/inc/cta/cta.php';
+
+
+
+
 
 
 ?>
