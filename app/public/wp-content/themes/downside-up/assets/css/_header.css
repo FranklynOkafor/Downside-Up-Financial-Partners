@@ -37,7 +37,7 @@
 .du-site-branding__link {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-base);
     text-decoration: none;
     min-width: 0; /* lets the wordmark truncate/wrap instead of forcing overflow */
