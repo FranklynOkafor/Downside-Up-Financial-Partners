@@ -1,40 +1,43 @@
 /* ==========================================================================
    HERO (homepage)
-   Mobile/Tablet (< 1025px): single column, content stacked above media.
-   Desktop (>= 1025px): 2-column grid, content left / media right.
-
-   Breakpoint deliberately matches _layout.css's existing desktop threshold
-   (1025px), not DESIGN.md's 768px "tablet" line — same reasoning as the
-   header fix: --display-lg is 64px, and a 64px serif headline needs more
-   room than a narrow tablet-width half-column can give it. Stacking single-
-   column through the full tablet range avoids reintroducing that overflow.
+   Layout matching design mockup:
+   - Content (Headline, Description, Buttons) at top left.
+   - Large dashboard graphic positioned below buttons on the left,
+     tilted counter-clockwise (-6.5 deg) and rising upwards to the right,
+     spanning across the container.
+   - Trust bar below with white background clipping the bottom of the graphic.
    ========================================================================== */
 
 .du-hero {
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-xl);
+    background-color: var(--background);
+    padding-top: var(--space-lg);
+    padding-bottom: 0;
+    position: relative;
+    overflow: hidden;
+ 
 }
 
 .du-hero__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: var(--space-xl);
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 0;
+    height: 90vh;
+    overflow: hidden;
 }
 
 /* ---- Content column ---- */
 .du-hero__content {
-    max-width: 640px;
+    max-width: 600px;
+    margin-bottom: var(--space-lg);
 }
 
-.du-hero__headline {
+/* .du-hero__headline {
     margin: 0 0 var(--space-md);
-}
+} */
 
-/* Not an explicit DESIGN.md token — the mockup renders the emphasized
-   headline word in a lighter, muted teal rather than full --on-background.
-   --surface-tint is the closest existing token to that tone; flag if you
-   have an exact value for this. */
 .du-hero__emphasis {
     font-style: italic;
     color: var(--surface-tint);
@@ -42,8 +45,8 @@
 
 .du-hero__description {
     color: var(--text-body);
-    max-width: 46ch;
-    margin: 0 0 var(--space-lg);
+    max-width: 48ch;
+    margin: 0 0 calc(var(--space-md) + 10px);
 }
 
 .du-hero__actions {
@@ -51,61 +54,110 @@
     flex-wrap: wrap;
     align-items: center;
     gap: var(--space-sm);
-    margin-bottom: var(--space-xl);
+}
+
+/* ---- Media column (Tilted dashboard graphic) ---- */
+.du-hero__media {
+    width: 100%;
+    position: relative;
+    margin-top: var(--space-md);
+    margin-bottom: -60px; /* pull down into trust bar clip line */
+}
+
+.du-hero__image {
+    display: block;
+    width: 100%;
+    max-width: 1050px;
+    height: auto;
+    border-radius: 16px;
+    transform: rotate(-6.5deg) translateY(-20px);
+    transform-origin: top left;
+    box-shadow: 0 30px 70px -15px rgba(10, 25, 40, 0.18), 0 15px 30px -5px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    transition: transform var(--transition-normal);
 }
 
 /* ---- Trust bar ---- */
+.du-hero__trust-bar {
+    position: relative;
+    z-index: 2;
+    background-color: var(--surface);
+    border-top: var(--border-width) solid var(--border);
+    margin-top: 40px; /* creates exact overlap space for clipped image */
+}
+
+.du-hero__trust-bar-inner {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    text-align: center;
+}
+
 .du-hero__trust-label {
     color: var(--on-surface-variant);
-    margin: 0 0 var(--space-sm);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 var(--space-md);
 }
 
 .du-hero__partners {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-md) var(--space-lg);
+    justify-content: center;
+    gap: var(--space-md) clamp(24px, 5vw, 60px);
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .du-hero__partner {
-    color: var(--outline);
-}
-
-/* ---- Media column ---- */
-.du-hero__media {
-    min-width: 0; /* lets the image shrink instead of forcing grid overflow */
-}
-
-.du-hero__image {
-    display: block;
-    width: 100%;
-    height: auto;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--surface-tint);
+    opacity: 0.85;
 }
 
 /* ==========================================================================
-   DESKTOP — >= 1025px
+   DESKTOP (>= 1025px) Adjustments
    ========================================================================== */
 @media (min-width: 1025px) {
-    .du-hero__inner {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-        column-gap: var(--space-xl);
-        row-gap: 0;
+    .du-hero {
+        padding-top: var(--space-lg);
     }
 
     .du-hero__content {
-        max-width: none;
+        margin-bottom: var(--space-xl);
     }
 
-    .du-hero__actions {
-        margin-bottom: var(--space-xl);
+    .du-hero__media {
+        margin-left: 20px;
+        margin-top: 0;
+        margin-bottom: -80px;
+    }
+
+    .du-hero__image {
+        width: 110%;
+        max-width: 1120px;
+        transform: rotate(-6.5deg) translateY(-25px);
     }
 }
 
-/* ---- Responsive: mobile actions go full-width for easy tapping ---- */
-@media (max-width: 480px) {
+/* ---- Mobile Adjustments ---- */
+@media (max-width: 768px) {
+    .du-hero__media {
+        margin-bottom: -30px;
+    }
+
+    .du-hero__image {
+        transform: rotate(-3.5deg) translateY(-10px);
+        border-radius: 12px;
+    }
+
     .du-hero__actions {
         flex-direction: column;
         align-items: stretch;

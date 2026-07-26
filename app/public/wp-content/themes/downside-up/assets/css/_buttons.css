@@ -31,26 +31,28 @@
 
 /* ---- Primary ---- */
 .du-btn--primary {
-    background-color: var(--primary-container);
+    background-color: var(--primary);
     color: var(--on-primary);
     border: var(--border-width) solid transparent;
 }
 
 .du-btn--primary:hover,
 .du-btn--primary:focus-visible {
-    background-color: var(--secondary);
+    background-color: var(--primary-container);
 }
 
 /* ---- Secondary ---- */
 .du-btn--secondary {
-    background-color: transparent;
-    color: var(--primary-container);
+    background-color: var(--surface);
+    color: var(--primary);
     border: var(--border-width) solid var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .du-btn--secondary:hover,
 .du-btn--secondary:focus-visible {
-    background-color: var(--surface-container-low);
+    background-color: var(--surface-bright);
+    border-color: var(--outline-variant);
 }
 
 
