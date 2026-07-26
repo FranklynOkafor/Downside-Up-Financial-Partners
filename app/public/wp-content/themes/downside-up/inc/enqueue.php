@@ -41,6 +41,10 @@ function downside_up_enqueue_assets()
     // 8. Header
     wp_enqueue_style('du-header', $theme_uri . '/assets/css/_header.css', ['du-components'], $theme_version);
 
+    // 8b. Hero (homepage, above-the-fold)
+    wp_enqueue_style('du-hero', $theme_uri . '/assets/css/_hero.css', ['du-header'], $theme_version);
+
+
     // 9. Footer
     wp_enqueue_style('du-footer', $theme_uri . '/assets/css/_footer.css', ['du-header'], $theme_version);
     

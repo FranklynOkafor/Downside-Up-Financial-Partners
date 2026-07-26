@@ -1,0 +1,113 @@
+/* ==========================================================================
+   HERO (homepage)
+   Mobile/Tablet (< 1025px): single column, content stacked above media.
+   Desktop (>= 1025px): 2-column grid, content left / media right.
+
+   Breakpoint deliberately matches _layout.css's existing desktop threshold
+   (1025px), not DESIGN.md's 768px "tablet" line — same reasoning as the
+   header fix: --display-lg is 64px, and a 64px serif headline needs more
+   room than a narrow tablet-width half-column can give it. Stacking single-
+   column through the full tablet range avoids reintroducing that overflow.
+   ========================================================================== */
+
+.du-hero {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+}
+
+.du-hero__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-xl);
+    align-items: center;
+}
+
+/* ---- Content column ---- */
+.du-hero__content {
+    max-width: 640px;
+}
+
+.du-hero__headline {
+    margin: 0 0 var(--space-md);
+}
+
+/* Not an explicit DESIGN.md token — the mockup renders the emphasized
+   headline word in a lighter, muted teal rather than full --on-background.
+   --surface-tint is the closest existing token to that tone; flag if you
+   have an exact value for this. */
+.du-hero__emphasis {
+    font-style: italic;
+    color: var(--surface-tint);
+}
+
+.du-hero__description {
+    color: var(--text-body);
+    max-width: 46ch;
+    margin: 0 0 var(--space-lg);
+}
+
+.du-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+
+/* ---- Trust bar ---- */
+.du-hero__trust-label {
+    color: var(--on-surface-variant);
+    margin: 0 0 var(--space-sm);
+}
+
+.du-hero__partners {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md) var(--space-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.du-hero__partner {
+    color: var(--outline);
+}
+
+/* ---- Media column ---- */
+.du-hero__media {
+    min-width: 0; /* lets the image shrink instead of forcing grid overflow */
+}
+
+.du-hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ==========================================================================
+   DESKTOP — >= 1025px
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .du-hero__inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        column-gap: var(--space-xl);
+        row-gap: 0;
+    }
+
+    .du-hero__content {
+        max-width: none;
+    }
+
+    .du-hero__actions {
+        margin-bottom: var(--space-xl);
+    }
+}
+
+/* ---- Responsive: mobile actions go full-width for easy tapping ---- */
+@media (max-width: 480px) {
+    .du-hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
