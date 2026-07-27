@@ -23,9 +23,9 @@ if (!defined('ABSPATH')) {
 function downside_up_get_hero_home_data()
 {
     $defaults = [
-        'headline_line1'        => __('Build Financial Confidence', 'downside-up'),
-        'headline_line2'        => __('With That Fits Your Life.', 'downside-up'),
-        'headline_emphasis'     => __('Advice.', 'downside-up'),
+        'headline_line1'        => __('Plan Smarter.', 'downside-up'),
+        'headline_line2'        => __('Live', 'downside-up'),
+        'headline_emphasis'     => __('Better.', 'downside-up'),
         'description'           => __('Personalized financial guidance that moves with you — built for clarity, designed for real life.', 'downside-up'),
         'primary_button_text'   => __('Take the Quiz', 'downside-up'),
         'primary_button_url'    => home_url('/quiz/'),

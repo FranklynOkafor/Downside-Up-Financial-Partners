@@ -96,3 +96,16 @@ h1, h2, h3 {
     font-weight: var(--caption-weight);
     line-height: var(--caption-line);
 }
+
+/* ---- Quote ----
+   DESIGN.md's Components section is explicit here: "Testimonial Cards:
+   Use EB Garamond Italic for the quote text." No dedicated size token
+   exists for quotes, so this borrows body-lg's size/line-height (closest
+   match to the reference proportions) and adds the serif italic on top. */
+.du-text-quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--body-lg-size);
+    font-weight: var(--body-lg-weight);
+    line-height: var(--body-lg-line);
+}

@@ -32,7 +32,7 @@ $du_image_height = 900;
         <em class="du-hero__emphasis"><?php echo esc_html($du_hero['headline_emphasis']); ?></em>
       </h1>
 
-      <p class="du-hero__description du-text-body-lg">
+      <p class="du-hero__description du-text-body-md">
         <?php echo esc_html($du_hero['description']); ?>
       </p>
 

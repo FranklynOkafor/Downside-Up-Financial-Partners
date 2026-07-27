@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single CTA card.
  *
@@ -33,8 +34,7 @@ if ($du_is_active) {
 <div
     class="<?php echo esc_attr($du_classes); ?>"
     data-persona="<?php echo esc_attr($du_persona_key); ?>"
-    <?php if ($du_is_slide) : ?>role="group" aria-roledescription="slide" aria-label="<?php echo esc_attr($du_persona['label']); ?>"<?php endif; ?>
->
+    <?php if ($du_is_slide) : ?>role="group" aria-roledescription="slide" aria-label="<?php echo esc_attr($du_persona['label']); ?>" <?php endif; ?>>
     <div class="du-cta__inner du-container">
 
         <h2 class="du-cta__headline du-text-headline-xl"><?php echo esc_html($du_persona['headline']); ?></h2>

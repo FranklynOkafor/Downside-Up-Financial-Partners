@@ -1,0 +1,169 @@
+/* ==========================================================================
+   TESTIMONIALS
+   Two-column: carousel (quote + attribution + nav) left, one static
+   supporting image right. Mobile/Tablet (< 1025px): stacked, carousel
+   first. Desktop (>= 1025px): side-by-side grid — same breakpoint
+   discipline as hero/header/footer, for the same reason (this section's
+   quote text and column widths need more room than a tablet half-column
+   comfortably gives).
+   ========================================================================== */
+
+.du-testimonials {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    background-color: var(--surface);
+}
+
+.du-testimonials__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-xl);
+}
+
+/* ---- Carousel (left) ---- */
+.du-testimonials__carousel {
+    position: relative;
+}
+
+.du-testimonials__quote-mark {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--outline-variant);
+    margin-bottom: var(--space-sm);
+}
+
+/* All slides share one grid cell and crossfade — same equal-height
+   technique as the CTA carousel, needed here too since testimonial quotes
+   vary in length and the image column shouldn't jump when they change. */
+.du-testimonials__track {
+    display: grid;
+}
+
+.du-testimonials__slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition-slow);
+}
+
+.du-testimonials__slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .du-testimonials__slide {
+        transition: none;
+    }
+}
+
+.du-testimonials__quote {
+    margin: 0 0 var(--space-lg);
+}
+
+.du-testimonials__quote .du-text-quote {
+    color: var(--on-background);
+    margin: 0;
+}
+
+.du-testimonials__attribution {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.du-testimonials__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.du-testimonials__avatar--placeholder {
+    display: block;
+    background-color: var(--surface-container);
+}
+
+.du-testimonials__name {
+    font-family: var(--font-serif);
+    font-weight: var(--font-semibold);
+    color: var(--on-background);
+    margin: 0;
+}
+
+.du-testimonials__role {
+    color: var(--on-surface-variant);
+    margin: var(--space-base) 0 0;
+}
+
+/* ---- Controls ---- */
+.du-testimonials__controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.du-testimonials__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    border: var(--border-width) solid var(--border);
+    background-color: var(--surface);
+    color: var(--on-surface-variant);
+    cursor: pointer;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.du-testimonials__arrow:hover,
+.du-testimonials__arrow:focus-visible {
+    border-color: var(--primary-container);
+    color: var(--primary-container);
+}
+
+/* ---- Media (right) ---- */
+.du-testimonials__media {
+    min-width: 0;
+}
+
+.du-testimonials__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-level-1);
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   DESKTOP — >= 1025px
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .du-testimonials__inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: var(--space-xl);
+        align-items: stretch;
+    }
+
+    /* Let the image fill the row height established by the (taller of the
+       two) columns, instead of just scaling to its own intrinsic ratio —
+       keeps it matched to whatever height the active quote needs. */
+    .du-testimonials__media {
+        height: 100%;
+    }
+
+    .du-testimonials__image {
+        height: 100%;
+    }
+}

@@ -51,6 +51,8 @@ function downside_up_enqueue_assets()
     // 9b. CTA (single card + carousel)
     wp_enqueue_style('du-cta', $theme_uri . '/assets/css/_cta.css', ['du-footer'], $theme_version);
 
+    // 9c. Testimonials
+    wp_enqueue_style('du-testimonials', $theme_uri . '/assets/css/_testimonials.css', ['du-cta'], $theme_version);
 
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);

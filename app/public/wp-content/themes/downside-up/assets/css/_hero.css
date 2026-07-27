@@ -17,6 +17,10 @@
  
 }
 
+#du-hero-heading {
+    margin: 0;
+}
+
 .du-hero__inner {
     display: flex;
     flex-direction: column;
@@ -46,7 +50,7 @@
 .du-hero__description {
     color: var(--text-body);
     max-width: 48ch;
-    margin: 0 0 calc(var(--space-md) + 10px);
+    margin: 0 0 var(--space-md);
 }
 
 .du-hero__actions {
