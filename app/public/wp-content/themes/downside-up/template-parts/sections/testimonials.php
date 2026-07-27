@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Testimonials section.
  * Loaded via: get_template_part( 'template-parts/sections/testimonials' );
@@ -40,8 +41,7 @@ $du_image_height = 1100;
             class="du-testimonials__carousel"
             data-du-carousel
             aria-roledescription="carousel"
-            aria-label="<?php esc_attr_e('Client testimonials', 'downside-up'); ?>"
-        >
+            aria-label="<?php esc_attr_e('Client testimonials', 'downside-up'); ?>">
             <span class="du-testimonials__quote-mark" aria-hidden="true">&#8220;</span>
 
             <div class="du-testimonials__track" data-du-carousel-track>
@@ -56,13 +56,12 @@ $du_image_height = 1100;
                         role="group"
                         aria-roledescription="slide"
                         aria-label="<?php echo esc_attr(sprintf(
-                            /* translators: 1: position, 2: total count, 3: client name */
-                            __('Testimonial %1$d of %2$d, %3$s', 'downside-up'),
-                            $du_index + 1,
-                            $du_total,
-                            $du_testimonial['name']
-                        )); ?>"
-                    >
+                                        /* translators: 1: position, 2: total count, 3: client name */
+                                        __('Testimonial %1$d of %2$d, %3$s', 'downside-up'),
+                                        $du_index + 1,
+                                        $du_total,
+                                        $du_testimonial['name']
+                                    )); ?>">
                         <blockquote class="du-testimonials__quote">
                             <p class="du-text-quote">&#8220;<?php echo esc_html($du_testimonial['quote']); ?>&#8221;</p>
                         </blockquote>
@@ -76,8 +75,7 @@ $du_image_height = 1100;
                                     width="48"
                                     height="48"
                                     loading="lazy"
-                                    decoding="async"
-                                >
+                                    decoding="async">
                             <?php else : ?>
                                 <span class="du-testimonials__avatar du-testimonials__avatar--placeholder" aria-hidden="true"></span>
                             <?php endif; ?>
@@ -92,24 +90,22 @@ $du_image_height = 1100;
             </div>
 
             <?php if ($du_total > 1) : ?>
-            <div class="du-testimonials__controls">
-                <button
-                    type="button"
-                    class="du-testimonials__arrow du-testimonials__arrow--prev"
-                    data-du-carousel-prev
-                    aria-label="<?php esc_attr_e('Previous testimonial', 'downside-up'); ?>"
-                >
-                    <?php echo downside_up_icon('chevron-left'); ?>
-                </button>
-                <button
-                    type="button"
-                    class="du-testimonials__arrow du-testimonials__arrow--next"
-                    data-du-carousel-next
-                    aria-label="<?php esc_attr_e('Next testimonial', 'downside-up'); ?>"
-                >
-                    <?php echo downside_up_icon('chevron-right'); ?>
-                </button>
-            </div>
+                <div class="du-testimonials__controls">
+                    <button
+                        type="button"
+                        class="du-testimonials__arrow du-testimonials__arrow--prev"
+                        data-du-carousel-prev
+                        aria-label="<?php esc_attr_e('Previous testimonial', 'downside-up'); ?>">
+                        <?php echo downside_up_icon('chevron-left'); ?>
+                    </button>
+                    <button
+                        type="button"
+                        class="du-testimonials__arrow du-testimonials__arrow--next"
+                        data-du-carousel-next
+                        aria-label="<?php esc_attr_e('Next testimonial', 'downside-up'); ?>">
+                        <?php echo downside_up_icon('chevron-right'); ?>
+                    </button>
+                </div>
             <?php endif; ?>
 
             <span class="du-sr-only" data-du-carousel-live aria-live="polite"></span>
@@ -123,8 +119,7 @@ $du_image_height = 1100;
                 width="<?php echo esc_attr($du_image_width); ?>"
                 height="<?php echo esc_attr($du_image_height); ?>"
                 loading="lazy"
-                decoding="async"
-            >
+                decoding="async">
         </div>
 
     </div>
