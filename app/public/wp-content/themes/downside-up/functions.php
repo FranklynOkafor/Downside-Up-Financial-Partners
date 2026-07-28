@@ -11,6 +11,8 @@ require_once get_template_directory() . '/inc/custom-post-types.php';
 require_once get_template_directory() . '/inc/enqueue.php';
 require_once get_template_directory() . '/inc/helpers.php';
 require_once get_template_directory() . '/inc/hero.php';
+require_once get_template_directory() . '/inc/hero-stats.php';
+
 require_once get_template_directory() . '/inc/menus.php';
 require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/sidebars.php';

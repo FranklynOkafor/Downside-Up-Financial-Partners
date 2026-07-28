@@ -44,6 +44,9 @@ function downside_up_enqueue_assets()
     // 8b. Hero (homepage, above-the-fold)
     wp_enqueue_style('du-hero', $theme_uri . '/assets/css/_hero.css', ['du-header'], $theme_version);
 
+    // 8c. Hero stats (directly beneath the hero)
+    wp_enqueue_style('du-hero-stats', $theme_uri . '/assets/css/_hero-stats.css', ['du-hero'], $theme_version);
+
 
     // 9. Footer
     wp_enqueue_style('du-footer', $theme_uri . '/assets/css/_footer.css', ['du-header'], $theme_version);
@@ -60,6 +63,7 @@ function downside_up_enqueue_assets()
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
     wp_enqueue_script('du-cta-carousel', $theme_uri . '/assets/js/cta-carousel.js', [], $theme_version, true);
+    wp_enqueue_script('du-stat-counter', $theme_uri . '/assets/js/stat-counter.js', [], $theme_version, true);
     wp_enqueue_script('du-main', $theme_uri . '/assets/js/main.js', [], $theme_version, true);
 }
 

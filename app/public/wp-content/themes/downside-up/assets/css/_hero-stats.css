@@ -1,0 +1,166 @@
+/* ==========================================================================
+   HERO STATS
+   Positioned directly beneath the hero. Reference image used an off-brand
+   green with no match in this system's tokens (verified by sampling —
+   ~60-85 units of color distance from the two closest candidates) and a
+   sans-serif for the big numbers. Layout/animation intent is preserved;
+   colors and type are mapped onto real tokens:
+     - Numbers/icons  -> --success (closest semantic green: positive,
+       trust-building metrics)
+     - Icon backdrop  -> --secondary-container (an actual pale mint token
+       already in the palette, not invented)
+     - Numbers        -> --font-mono, per DESIGN.md: "JetBrains Mono is
+       reserved specifically for financial data, currency displays, and
+       metric scores" — these are exactly that.
+   Mobile/Tablet (< 1025px): stacked, generous spacing, no dividers.
+   Desktop (>= 1025px): 3-column grid with vertical divider lines.
+   ========================================================================== */
+
+.du-hero-stats {
+    background-color: var(--surface);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+}
+
+/* ---- Intro (eyebrow + accent) ---- */
+.du-hero-stats__intro {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.du-hero-stats__eyebrow {
+    color: var(--on-surface-variant);
+    margin: 0;
+}
+
+.du-hero-stats__accent {
+    display: block;
+    width: 32px;
+    height: 3px;
+    border-radius: var(--radius-full);
+    background-color: var(--success);
+    margin: var(--space-sm) auto 0;
+}
+
+/* ---- Grid ---- */
+.du-hero-stats__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-xl);
+}
+
+.du-hero-stats__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.du-hero-stats__item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .du-hero-stats__item {
+        transition: none;
+        transform: none;
+    }
+}
+
+/* ---- Icon ---- */
+.du-hero-stats__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    background-color: var(--secondary-container);
+    color: var(--success);
+    margin-bottom: var(--space-md);
+}
+
+/* ---- Number ----
+   No existing token is sized for a hero-stat number this prominent
+   (--number-display is 32px, built for a dashboard score badge). Keeping
+   the family/weight/tracking tokens as-is and scaling the size up is a
+   deliberate extrapolation, not a new type system. */
+.du-hero-stats__number {
+    font-family: var(--number-display-family);
+    font-weight: var(--number-display-weight);
+    letter-spacing: var(--number-display-tracking);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    color: var(--success);
+    margin: 0 0 var(--space-sm);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- Label ---- */
+.du-hero-stats__label {
+    font-family: var(--body-md-family);
+    font-size: var(--body-md-size);
+    line-height: var(--body-md-line);
+    color: var(--text-body);
+    max-width: 26ch;
+    margin: 0;
+}
+
+.du-hero-stats__label-accent {
+    display: block;
+    width: 64px;
+    height: 3px;
+    border-radius: var(--radius-full);
+    margin-top: var(--space-md);
+    /* Two-tone accent per the reference: partial fill + muted track,
+       built with a gradient hard-stop rather than two elements. */
+    background: linear-gradient(
+        to right,
+        var(--success) 0%,
+        var(--success) 55%,
+        var(--outline-variant) 55%,
+        var(--outline-variant) 100%
+    );
+}
+
+/* ---- Trust line ---- */
+.du-hero-stats__trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    font-family: var(--caption-family);
+    font-size: var(--caption-size);
+    line-height: var(--caption-line);
+    color: var(--on-surface-variant);
+    margin: var(--space-xl) 0 0;
+}
+
+.du-hero-stats__trust-icon {
+    display: inline-flex;
+    color: var(--success);
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   DESKTOP — >= 1025px
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .du-hero-stats__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        row-gap: 0;
+    }
+
+    .du-hero-stats__item {
+        padding-inline: var(--space-lg);
+        border-left: var(--border-width) solid var(--border);
+    }
+
+    .du-hero-stats__item:first-child {
+        border-left: none;
+    }
+}
