@@ -5,10 +5,11 @@
 //Hero Section
 get_template_part('template-parts/heroes/hero', 'home');
 
+// Wealth Info Section
+get_template_part('template-parts/sections/wealth-info');
 
 // Testimonials Section
 get_template_part('template-parts/sections/testimonials');
-
 
 // CTA Carousel – 4 personas (will use inc/cta/cta-personas.php)
 downside_up_cta();

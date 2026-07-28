@@ -1,0 +1,33 @@
+.du-wealth-section .du-container {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.du-wealth-section .du-container h2 {
+    max-width: 50ch;
+    margin: 0 auto;
+}
+
+.wealth-text-container {
+    max-width: 64ch;
+    margin: 40px auto;
+
+}
+
+.du-wealth-section .wealth-text-container p {
+    margin-bottom: -15px;
+}
+
+@media (max-width: 767px) {
+    .du-wealth-section .du-container {
+        padding: 48px 20px;
+    }
+
+    .du-wealth-section .wealth-text-container {
+        margin-top: 24px;
+    }
+
+    .du-wealth-section .wealth-text-container p {
+        margin-bottom: 0;
+    }
+}
