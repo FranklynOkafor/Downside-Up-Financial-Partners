@@ -8,6 +8,9 @@ get_template_part('template-parts/heroes/hero', 'home');
 // Wealth Info Section
 get_template_part('template-parts/sections/wealth-info');
 
+// Hero Stat
+get_template_part('template-parts/sections/hero-stat');
+
 // Testimonials Section
 get_template_part('template-parts/sections/testimonials');
 
