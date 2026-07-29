@@ -166,9 +166,9 @@
 
     /* Caption */
     --caption-family: var(--font-sans);
-    --caption-size: 16px;
+    --caption-size: 14px;
     --caption-weight: 400;
-    --caption-line: 20px;
+    --caption-line: 16px;
 
     /* ==================================
        SPACING — 4px base grid

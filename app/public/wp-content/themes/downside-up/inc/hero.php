@@ -23,16 +23,24 @@ if (!defined('ABSPATH')) {
 function downside_up_get_hero_home_data()
 {
     $defaults = [
-        'headline_line1'        => __('Plan Smarter.', 'downside-up'),
-        'headline_line2'        => __('Live', 'downside-up'),
-        'headline_emphasis'     => __('Better.', 'downside-up'),
-        'description'           => __('Personalized financial guidance that moves with you — built for clarity, designed for real life.', 'downside-up'),
-        'primary_button_text'   => __('Take the Quiz', 'downside-up'),
+        // 'eyebrow'               => __('Personalised Financial Planning & Wealth Advisory', 'downside-up'),
+        'headline_line1'        => __('Financial Planning', 'downside-up'),
+        'headline_line2'        => __('Made', 'downside-up'),
+        'headline_emphasis'     => __('Simple.', 'downside-up'),
+        'description'           => __("Understand where you stand financially and receive personalised guidance to help you build, protect, and grow your wealth.", 'downside-up'),
+        'primary_button_text'   => __('Start Your Assessment', 'downside-up'),
         'primary_button_url'    => home_url('/quiz/'),
         'secondary_button_text' => __('Learn More', 'downside-up'),
         'secondary_button_url'  => home_url('/about/'),
+        'trust_indicators'      => [
+            __('Secure & Confidential', 'downside-up'),
+            __('Personalised Recommendations', 'downside-up'),
+            __('Takes Under 10 Minutes', 'downside-up'),
+        ],
+        'social_proof'          => __('Trusted by 1,500+ individuals and families', 'downside-up'),
+        'dashboard_label'       => __('Example Financial Health Report', 'downside-up'),
         'trust_label'           => __('Trusted by leading institutional partners', 'downside-up'),
-        'partners'              => ['Fortuna', 'Element', 'Novacore', 'Equinox', 'Meridian'],
+        'partners'              => ['Fortuna', 'AlphaVest', 'Novacore', 'Quantum', 'Meridian'],
         'image_alt'             => __('DownSide Up dashboard showing a financial health score of 82, labeled Healthy, alongside supporting metric gauges.', 'downside-up'),
     ];
 
@@ -41,6 +49,7 @@ function downside_up_get_hero_home_data()
     }
 
     $overrides = [
+        'eyebrow'               => get_field('hero_eyebrow'),
         'headline_line1'        => get_field('hero_headline_line1'),
         'headline_line2'        => get_field('hero_headline_line2'),
         'headline_emphasis'     => get_field('hero_headline_emphasis'),
@@ -49,6 +58,9 @@ function downside_up_get_hero_home_data()
         'primary_button_url'    => get_field('hero_primary_button_url'),
         'secondary_button_text' => get_field('hero_secondary_button_text'),
         'secondary_button_url'  => get_field('hero_secondary_button_url'),
+        'trust_indicators'      => get_field('hero_trust_indicators'),
+        'social_proof'          => get_field('hero_social_proof'),
+        'dashboard_label'       => get_field('hero_dashboard_label'),
         'trust_label'           => get_field('hero_trust_label'),
         'partners'              => get_field('hero_partners'),
         'image_alt'             => get_field('hero_image_alt'),

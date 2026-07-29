@@ -63,6 +63,8 @@ function downside_up_icon($name, $args = [])
 
         'reality-check' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M9 10.5a3 3 0 1 1 4.2 2.7c-.7.35-1.2.9-1.2 1.55V15"/><circle cx="12" cy="18.2" r="0.15" fill="currentColor" stroke="none"/><rect x="3" y="3" width="18" height="18" rx="9"/></svg>',
 
+        'circle-check' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>',
+
     ];
 
     if (!isset($icons[$name])) {

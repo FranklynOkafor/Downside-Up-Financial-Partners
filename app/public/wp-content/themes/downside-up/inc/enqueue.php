@@ -69,6 +69,7 @@ function downside_up_enqueue_assets()
     wp_enqueue_script('du-stat-counter', $theme_uri . '/assets/js/stat-counter.js', [], $theme_version, true);
     wp_enqueue_script('du-assessment-engine', $theme_uri . '/assets/js/assessment-engine.js', [], $theme_version, true);
     wp_enqueue_script('du-main', $theme_uri . '/assets/js/main.js', [], $theme_version, true);
+    wp_enqueue_script('du-hero', $theme_uri . '/assets/js/hero.js', [], $theme_version, true);
 }
 
 add_action('wp_enqueue_scripts', 'downside_up_enqueue_assets');

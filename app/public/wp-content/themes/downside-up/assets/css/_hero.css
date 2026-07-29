@@ -60,6 +60,46 @@
     gap: var(--space-sm);
 }
 
+/* ---- R1 — Eyebrow ---- */
+.du-hero__eyebrow {
+    color: var(--surface-tint);
+    margin: 0 0 var(--space-sm);
+    display: block;
+}
+
+/* ---- R4 — Trust indicators strip ---- */
+.du-hero__trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-xs) var(--space-md);
+    list-style: none;
+    margin: var(--space-md) 0 0;
+    padding: 0;
+}
+
+.du-hero__trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-base);
+    font-family: var(--caption-family);
+    font-size: var(--caption-size);
+    line-height: var(--caption-line);
+    color: var(--on-surface-variant);
+
+}
+
+.du-hero__trust-icon {
+    color: var(--success);
+    flex-shrink: 0;
+}
+
+/* ---- R5 — Social proof ---- */
+.du-hero__social-proof {
+    color: var(--on-surface-variant);
+    margin: var(--space-sm) 0 0;
+}
+
 /* ---- Media column (Tilted dashboard graphic) ---- */
 .du-hero__media {
     width: 100%;
@@ -68,6 +108,25 @@
     margin-bottom: -60px; /* pull down into trust bar clip line */
 }
 
+/* R6 — Dashboard context label */
+.du-hero__dashboard-label {
+    position: absolute;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-full);
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--on-surface-variant);
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: var(--shadow-level-1);
+}
+
+/* R7 — Reveal animation: image starts hidden/low, hero.js adds .is-visible */
 .du-hero__image {
     display: block;
     width: 100%;
@@ -79,6 +138,40 @@
     box-shadow: 0 30px 70px -15px rgba(10, 25, 40, 0.18), 0 15px 30px -5px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.8);
     transition: transform var(--transition-normal);
+
+    /* Initial reveal state — hero.js applies .is-revealed to .du-hero__media */
+    opacity: 0;
+    translate: 0 24px;
+}
+
+/* hero.js sets this once on intersection */
+.du-hero__media.is-revealed .du-hero__image {
+    opacity: 1;
+    translate: 0 0;
+    transition:
+        opacity 700ms var(--ease-standard),
+        translate 700ms var(--ease-standard),
+        transform var(--transition-normal);
+}
+
+/* Idle float — only when not being tilt-tracked by JS */
+@keyframes du-hero-float {
+    0%, 100% { translate: 0 0; }
+    50%       { translate: 0 -8px; }
+}
+
+.du-hero__media.is-floating .du-hero__image {
+    animation: du-hero-float 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .du-hero__image,
+    .du-hero__media.is-revealed .du-hero__image {
+        opacity: 1;
+        translate: 0 0;
+        transition: none;
+        animation: none;
+    }
 }
 
 /* ---- Trust bar ---- */
@@ -125,8 +218,6 @@
     color: var(--surface-tint);
     opacity: 0.85;
 }
-
-
 
 /* ==========================================================================
    DESKTOP (>= 1025px) Adjustments
