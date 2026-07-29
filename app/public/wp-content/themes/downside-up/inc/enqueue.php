@@ -63,12 +63,16 @@ function downside_up_enqueue_assets()
     // 9e. Assessment Engine
     wp_enqueue_style('du-assessment-engine', $theme_uri . '/assets/css/_assessment-engine.css', ['du-wealth-info'], $theme_version);
 
+    // 9f. How We Help
+    wp_enqueue_style('du-how-we-help', $theme_uri . '/assets/css/_how-we-help.css', ['du-assessment-engine'], $theme_version);
+
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
     wp_enqueue_script('du-cta-carousel', $theme_uri . '/assets/js/cta-carousel.js', [], $theme_version, true);
     wp_enqueue_script('du-stat-counter', $theme_uri . '/assets/js/stat-counter.js', [], $theme_version, true);
     wp_enqueue_script('du-assessment-engine', $theme_uri . '/assets/js/assessment-engine.js', [], $theme_version, true);
     wp_enqueue_script('du-main', $theme_uri . '/assets/js/main.js', [], $theme_version, true);
+    wp_enqueue_script('du-how-we-help', $theme_uri . '/assets/js/how-we-help.js', [], $theme_version, true);
     wp_enqueue_script('du-hero', $theme_uri . '/assets/js/hero.js', [], $theme_version, true);
 }
 

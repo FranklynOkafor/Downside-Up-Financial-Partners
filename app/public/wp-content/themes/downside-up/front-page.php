@@ -11,6 +11,9 @@ get_template_part('template-parts/sections/wealth-info');
 // Hero Stat
 get_template_part('template-parts/sections/hero-stat');
 
+// How We Help Section
+get_template_part('template-parts/sections/how-we-help');
+
 // Assessment Engine Section
 get_template_part('template-parts/sections/assessment-engine');
 
