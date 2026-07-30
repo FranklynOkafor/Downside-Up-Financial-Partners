@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Returns the homepage hero's content.
+ * Returns the hero's content.
  *
  * ACF-ready: if Advanced Custom Fields is active and fields have been
  * populated on the front page, their values override these defaults —
@@ -65,6 +65,38 @@ function downside_up_get_hero_home_data()
         'partners'              => get_field('hero_partners'),
         'image_alt'             => get_field('hero_image_alt'),
     ];
+
+    foreach ($overrides as $key => $value) {
+        if (!empty($value)) {
+            $defaults[$key] = $value;
+        }
+    }
+
+    return $defaults;
+}
+
+
+function downside_up_get_hero_about_data()
+{
+    $defaults = [
+        'eyebrow'               => __('OUR PHILOSOPHY', 'downside-up'),
+        'headline_line1'        => __('Before Numbers', 'downside-up'),
+        'headline_line2'        => __('Comes', 'downside-up'),
+        'headline_emphasis'     => __('People.', 'downside-up'),
+        'description'           => __("Traditional finance often starts with products, projections, and performance. We start somewhere different: understanding the person behind the portfolio. Because better financial decisions begin with better conversations.", 'downside-up'),
+    ];
+
+    if (!function_exists('get_field')) {
+        return $defaults;
+    }
+
+    $overrides = [
+        'eyebrow'               => get_field('about_hero_eyebrow'),
+        'headline_line1'        => get_field('about_hero_headline_line1'),
+        'headline_line2'        => get_field('about_hero_headline_line2'),
+        'headline_emphasis'     => get_field('about_hero_headline_emphasis'),
+        'description'           => get_field('about_hero_description'),
+        ];
 
     foreach ($overrides as $key => $value) {
         if (!empty($value)) {
