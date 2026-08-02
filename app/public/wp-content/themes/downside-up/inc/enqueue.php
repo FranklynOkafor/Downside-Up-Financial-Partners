@@ -69,6 +69,9 @@ function downside_up_enqueue_assets()
     // 10. About Page
     wp_enqueue_style('du-story-editorial', $theme_uri . '/assets/css/about-page/_story-editorial.css', ['du-how-we-help'], $theme_version);
 
+    // 10b. About Page — Mission & Vision Grid
+    wp_enqueue_style('du-mission-vision', $theme_uri . '/assets/css/about-page/_mission-vision.css', ['du-story-editorial'], $theme_version);
+
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
     wp_enqueue_script('du-cta-carousel', $theme_uri . '/assets/js/cta-carousel.js', [], $theme_version, true);

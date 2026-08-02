@@ -1,0 +1,112 @@
+/* ==========================================================================
+   MISSION & VISION GRID
+   Two equal cards directly after the Story section: Vision (light, outlined,
+   subtle) and Mission (dark, primary emphasis) — same card family as
+   .du-help-card (_how-we-help.css), just two-up instead of bento, and with
+   a dark variant borrowed from .du-cta's --primary surface (_cta.css)
+   instead of a second light tone. Quiet and editorial: no hover lift, no
+   entrance animation — this section is a pause, not an interaction.
+   ========================================================================== */
+
+.du-mv {
+    background-color: var(--background);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* ---- Grid: single column until tablet, two equal columns from 768px ---- */
+.du-mv__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+    .du-mv__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: var(--space-lg);
+    }
+}
+
+/* ---- Card shell — shared by both cards, same conventions as
+        .du-help-card: radius-lg, shadow-level-1, generous padding,
+        flex column so heights can match via grid stretch above. ---- */
+.du-mv-card {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-level-1);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+.du-mv-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+}
+
+.du-mv-card__heading {
+    margin: 0 0 var(--space-sm);
+}
+
+.du-mv-card__copy {
+    margin: 0;
+}
+
+/* ---- Vision — light surface, outlined, subtle ---- */
+.du-mv-card--vision {
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+}
+
+.du-mv-card--vision .du-mv-card__icon {
+    background-color: var(--surface-container-low);
+    color: var(--primary);
+}
+
+.du-mv-card--vision .du-mv-card__heading {
+    color: var(--on-background);
+}
+
+.du-mv-card--vision .du-mv-card__copy {
+    color: var(--on-surface-variant);
+}
+
+/* ---- Mission — dark surface, primary emphasis. Same --primary dark
+        card treatment already established by .du-cta (_cta.css). ---- */
+.du-mv-card--mission {
+    background-color: var(--primary);
+    border: var(--border-width) solid transparent;
+}
+
+.du-mv-card--mission .du-mv-card__icon {
+    background-color: var(--primary-container);
+    color: var(--on-primary);
+}
+
+.du-mv-card--mission .du-mv-card__heading {
+    color: var(--on-primary);
+}
+
+.du-mv-card--mission .du-mv-card__copy {
+    color: var(--inverse-on-surface);
+}
+
+/* ==========================================================================
+   MOBILE — < 768px: tighter vertical rhythm, cards stay substantial
+   ========================================================================== */
+@media (max-width: 767px) {
+    .du-mv {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .du-mv-card {
+        padding: var(--space-md);
+    }
+}

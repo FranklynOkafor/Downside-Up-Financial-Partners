@@ -73,6 +73,10 @@ function downside_up_icon($name, $args = [])
 
         'briefcase' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5"/><line x1="3" y1="12.5" x2="21" y2="12.5"/></svg>',
 
+        'eye' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>',
+
+        'rocket' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M12 2.5c2.6 1.3 4.5 4.2 4.5 8 0 2-1 4-1.8 5.2l-2.7 2.8-2.7-2.8C8.5 14.5 7.5 12.5 7.5 10.5c0-3.8 1.9-6.7 4.5-8z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M8.5 15.5 6 17.8c-.3.3-.5.7-.5 1.2v1.5h1.5c.5 0 .9-.2 1.2-.5l2.3-2.5"/><path d="M15.5 15.5 18 17.8c.3.3.5.7.5 1.2v1.5H17c-.5 0-.9-.2-1.2-.5l-2.3-2.5"/></svg>',
+
     ];
 
     if (!isset($icons[$name])) {
