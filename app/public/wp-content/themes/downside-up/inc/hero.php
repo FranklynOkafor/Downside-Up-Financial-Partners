@@ -96,7 +96,7 @@ function downside_up_get_hero_about_data()
         'headline_line2'        => get_field('about_hero_headline_line2'),
         'headline_emphasis'     => get_field('about_hero_headline_emphasis'),
         'description'           => get_field('about_hero_description'),
-        ];
+    ];
 
     foreach ($overrides as $key => $value) {
         if (!empty($value)) {
@@ -105,4 +105,43 @@ function downside_up_get_hero_about_data()
     }
 
     return $defaults;
+}
+
+/**
+ * Returns the About Page story Section
+ */
+
+function downside_up_get_story_data()
+{
+    $defaults = [
+        'eyebrow' => __('Our Story', 'downside-up'),
+        'heading' => __('A Different Starting Point.', 'downside-up'),
+        'paragraphs' => [
+            __('DownSide Up began with a simple observation: most financial advice starts too late. By the time portfolios are reviewed and strategies are discussed, the most important part of the conversation has already been overlooked—the person making the decisions. We believed there had to be a better place to begin.', 'downside-up'),
+            __("Instead of asking what to invest in first, we ask what matters most to the individual behind the portfolio. Their goals, uncertainties, habits, and perspective shape every recommendation that follows. That belief became the foundation of our Reality Check™ approach, where understanding people isn't an introduction to financial planning—it's the plan itself.", 'downside-up')
+        ],
+        'image_url'  => get_template_directory_uri() . '/assets/images/Editorial story.jpg',
+        'image_alt'  => __('A team gathered around a table reviewing financial charts and discussing strategy together.', 'downside-up'),
+
+    ];
+
+    if (! function_exists('get_field')) {
+        return apply_filters('downside_up_story_data', $defaults);
+    }
+
+    $overrides = [
+        'eyebrow'    => get_field('story_eyebrow'),
+        'heading'    => get_field('story_heading'),
+        'paragraphs' => get_field('story_paragraphs'),
+        'image_url'  => (get_field('story_image')) ? get_field('story_image')['url'] : null,
+        'image_alt'  => (get_field('story_image')) ? get_field('story_image')['alt'] : null,
+    ];
+
+    foreach ($overrides as $key => $value) {
+        if (! empty($value)) {
+            $defaults[$key] = $value;
+        }
+    }
+
+    return apply_filters('downside_up_story_data', $defaults);
 }

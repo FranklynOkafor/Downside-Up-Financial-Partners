@@ -1,0 +1,143 @@
+/* ==========================================================================
+   STORY — About page editorial section
+   Positioned immediately after the About hero.
+
+   Typography, spacing tokens, .du-container and .du-sr-only are already
+   handled by the global stylesheets — this file only defines:
+     1. The two-column layout grid
+     2. The image proportions + border-radius
+     3. The reveal animation (matching the pattern from _assessment-engine.css
+        and _hero-stats.css: opacity + translateY, triggered by JS class)
+     4. Responsive stack behaviour
+
+   Deliberately minimal. Everything re-using an existing token or utility
+   class has no rule here.
+   ========================================================================== */
+
+/* ---- Section ---- */
+.du-story {
+    background-color: var(--surface);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+}
+
+/* ---- Two-column grid ----
+   Measured from the design: image col ~35% of canvas, text col ~43%,
+   gap ~8%. Translated to CSS: equal 1fr columns with a generous gap
+   preserves the editorial breathing room without hardcoding pixel widths.
+   align-items: start keeps the image top-aligned with the eyebrow text
+   (not centred), exactly as shown in the design.
+   ========================================================================== */
+.du-story__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+/* ---- Reveal animation — same pattern as .du-assessment-card ---- */
+.du-story__media,
+.du-story__content {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.du-story__media.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.du-story__content.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 100ms; /* stagger: content reveals just after image */
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .du-story__media,
+    .du-story__content {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ---- Image ----
+   Design shows a portrait-oriented photo, ratio ≈ 3:4 (measured: 0.73).
+   aspect-ratio locks this without needing a fixed height.
+   border-radius matches --radius-lg (16px) — the same radius used on
+   primary cards and the about hero's image.
+   No box-shadow: the image sits directly on --background with no elevation.
+   ========================================================================== */
+.du-story__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+/* ---- Text column ---- */
+.du-story__eyebrow {
+    color: var(--surface-tint);
+    margin: 0 0 var(--space-sm);
+    display: block;
+}
+
+.du-story__heading {
+    margin: 0 0 var(--space-lg);
+}
+
+.du-story__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.du-story__paragraph {
+    color: var(--on-surface-variant);
+    margin: 0;
+    max-width: 58ch;
+}
+
+/* ==========================================================================
+   TABLET — 768px to 1024px
+   Maintain the two-column layout but compress proportions slightly.
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .du-story__inner {
+        gap: var(--space-lg);
+    }
+
+    .du-story__paragraph {
+        max-width: none;
+    }
+}
+
+/* ==========================================================================
+   MOBILE — < 768px
+   Stack vertically: image first (maintains visual hierarchy), text below.
+   Generous whitespace preserves the editorial reading experience.
+   ========================================================================== */
+@media (max-width: 767px) {
+    .du-story {
+        padding-top: var(--space-lg);
+        padding-bottom: var(--space-lg);
+    }
+
+    .du-story__inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-lg);
+    }
+
+    .du-story__image {
+        aspect-ratio: 4 / 3; /* wider on mobile — less dominant, more contextual */
+        border-radius: var(--radius-md);
+    }
+
+    .du-story__paragraph {
+        max-width: none;
+    }
+}
