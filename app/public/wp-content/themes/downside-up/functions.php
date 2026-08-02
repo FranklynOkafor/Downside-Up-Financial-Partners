@@ -21,13 +21,11 @@ require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/sidebars.php';
 require_once get_template_directory() . '/inc/template-functions.php';
 
+// About Page
+require_once get_template_directory() . '/inc/about-page/mission-vision.php';
+require_once get_template_directory() . '/inc/about-page/core-principles.php';
 
-
-
-// Require files for About page sections
-require_once get_template_directory() . '/inc/about-us/mission-vision.php';
-
-// Require the files for CTA
+// CTA
 require_once get_template_directory() . '/inc/cta/cta.php';
 
 // Require files for testimonials 

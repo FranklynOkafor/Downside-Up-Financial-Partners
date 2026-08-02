@@ -77,6 +77,15 @@ function downside_up_icon($name, $args = [])
 
         'rocket' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M12 2.5c2.6 1.3 4.5 4.2 4.5 8 0 2-1 4-1.8 5.2l-2.7 2.8-2.7-2.8C8.5 14.5 7.5 12.5 7.5 10.5c0-3.8 1.9-6.7 4.5-8z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M8.5 15.5 6 17.8c-.3.3-.5.7-.5 1.2v1.5h1.5c.5 0 .9-.2 1.2-.5l2.3-2.5"/><path d="M15.5 15.5 18 17.8c.3.3.5.7.5 1.2v1.5H17c-.5 0-.9-.2-1.2-.5l-2.3-2.5"/></svg>',
 
+        // 'handshake' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M18.5 14.5V18a2 2 0 0 1-2 2H2.5"/><path d="M12 22.5v-6.4a3.4 3.4 0 0 0 3.4-3.4V5.6"/><path d="M12 22.5v-10.4a2 2 0 0 1 2-2h3.4"/><path d="M18.5 7.9V5.9a2 2 0 0 0-2-2H8.5a2 2 0 0 0-2 2v5.1"/><path d="M12.2 11.2H6.9a2 2 0 0 0-2 2v3.3"/><path d="M17.5 17.4 19 18.7"/><path d="M22 9.7V7.8a2 2 0 0 0-2-2h-3.3"/><path d="M19 11.5V9.5a2 2 0 0 0-2-2h-3.3"/></svg>',
+
+
+        'shield' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/></svg>',
+
+        'book-open' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M12 6.5c-1.6-1-3.7-1.5-5.8-1.5-.6 0-1.2.4-1.2 1v11.5c0 .6.6 1 1.2 1 2.1 0 4.2.5 5.8 1.5"/><path d="M12 6.5c1.6-1 3.7-1.5 5.8-1.5.6 0 1.2.4 1.2 1v11.5c0 .6-.6 1-1.2 1-2.1 0-4.2.5-5.8 1.5V6.5z"/></svg>',
+
+        'brain' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="%1$s" width="%2$d" height="%3$d" aria-hidden="true"><path d="M9.5 4a2.5 2.5 0 0 0-2.5 2.5v.3A2.5 2.5 0 0 0 5 9.2v1.6a2.5 2.5 0 0 0 1 2v2.7A2.5 2.5 0 0 0 8.5 18h1A2.5 2.5 0 0 0 12 15.5v-9A2.5 2.5 0 0 0 9.5 4z"/><path d="M14.5 4a2.5 2.5 0 0 1 2.5 2.5v.3a2.5 2.5 0 0 1 2 2.4v1.6a2.5 2.5 0 0 1-1 2v2.7a2.5 2.5 0 0 1-2.5 2.5h-1a2.5 2.5 0 0 1-2.5-2.5v-9A2.5 2.5 0 0 1 14.5 4z"/></svg>',
+
     ];
 
     if (!isset($icons[$name])) {

@@ -1,0 +1,142 @@
+/* ==========================================================================
+   CORE PRINCIPLES GRID
+   Centered heading + description, then three equal-height cards (icon
+   circle, title, description). Simpler sibling of .du-help-card
+   (_how-we-help.css): same radius/shadow/hover/reveal language, without
+   the bento grid-span or link-row behaviour this component doesn't need.
+   ========================================================================== */
+
+.du-principles {
+    background-color: var(--surface);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* ---- Section header ---- */
+.du-principles__header {
+    max-width: 640px;
+    margin: 0 auto var(--space-xl);
+    text-align: center;
+}
+
+.du-principles__heading {
+    margin: 0 0 var(--space-sm);
+}
+
+.du-principles__description {
+    color: var(--on-surface-variant);
+    margin: 0;
+}
+
+/* ---- Grid ---- */
+.du-principles__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-md);
+}
+
+.du-principle-card {
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-level-1);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow),
+                box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.du-principle-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.du-principle-card:hover,
+.du-principle-card:focus-within {
+    border-color: var(--primary-hover);
+    box-shadow: var(--shadow-level-2);
+    transform: translateY(-3px);
+}
+
+.du-principle-card.is-visible:hover,
+.du-principle-card.is-visible:focus-within {
+    transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .du-principle-card {
+        transition: none;
+        transform: none;
+    }
+    .du-principle-card:hover {
+        transform: none;
+    }
+}
+
+.du-principle-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background-color: var(--surface-container-low);
+    color: var(--primary);
+    margin-bottom: var(--space-md);
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.du-principle-card:hover .du-principle-card__icon,
+.du-principle-card:focus-within .du-principle-card__icon {
+    transform: translateY(-2px) scale(1.05);
+    background-color: var(--surface-container-high);
+}
+
+.du-principle-card__title {
+    font-size: clamp(1.2rem, 1.6vw, 1.375rem);
+    margin: 0 0 var(--space-xs);
+}
+
+.du-principle-card__description {
+    color: var(--on-surface-variant);
+    margin: 0;
+}
+
+/* ==========================================================================
+   TABLET — 768–1024px: three columns if space allows, otherwise two
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .du-principles__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ==========================================================================
+   DESKTOP — >= 1025px: three equal columns
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .du-principles__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+    }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 767px) {
+    .du-principles {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .du-principles__header {
+        margin-bottom: var(--space-lg);
+    }
+
+    .du-principle-card {
+        padding: var(--space-md);
+    }
+}

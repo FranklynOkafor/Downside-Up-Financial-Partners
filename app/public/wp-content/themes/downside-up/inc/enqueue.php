@@ -72,6 +72,10 @@ function downside_up_enqueue_assets()
     // 10b. About Page — Mission & Vision Grid
     wp_enqueue_style('du-mission-vision', $theme_uri . '/assets/css/about-page/_mission-vision.css', ['du-story-editorial'], $theme_version);
 
+    // 10c. About Page — Core Principles Grid
+    wp_enqueue_style('du-principles-grid', $theme_uri . '/assets/css/about-page/_principles-grid.css', ['du-mission-vision'], $theme_version);
+
+
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
     wp_enqueue_script('du-cta-carousel', $theme_uri . '/assets/js/cta-carousel.js', [], $theme_version, true);
@@ -82,6 +86,9 @@ function downside_up_enqueue_assets()
     wp_enqueue_script('du-main', $theme_uri . '/assets/js/main.js', [], $theme_version, true);
     wp_enqueue_script('du-how-we-help', $theme_uri . '/assets/js/how-we-help.js', [], $theme_version, true);
     wp_enqueue_script('du-hero', $theme_uri . '/assets/js/hero.js', [], $theme_version, true);
+
+    wp_enqueue_script('du-mission-vision', $theme_uri . '/assets/js/about-page/mission-vision.js', [], $theme_version, true);
+    wp_enqueue_script('du-principles-grid', $theme_uri . '/assets/js/about-page/principles-grid.js', [], $theme_version, true);
 }
 
 add_action('wp_enqueue_scripts', 'downside_up_enqueue_assets');
