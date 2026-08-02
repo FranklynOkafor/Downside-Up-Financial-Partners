@@ -66,6 +66,9 @@ function downside_up_enqueue_assets()
     // 9f. How We Help
     wp_enqueue_style('du-how-we-help', $theme_uri . '/assets/css/_how-we-help.css', ['du-assessment-engine'], $theme_version);
 
+    // 10. About Page
+    wp_enqueue_style('du-story-editorial', $theme_uri . '/assets/css/about_page/_story-editorial.css', ['du-how-we-help'], $theme_version);
+
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
     wp_enqueue_script('du-cta-carousel', $theme_uri . '/assets/js/cta-carousel.js', [], $theme_version, true);

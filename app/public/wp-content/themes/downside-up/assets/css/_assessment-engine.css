@@ -38,6 +38,12 @@
     transform: translateY(0);
 }
 
+/* ---- Eyebrow label ---- */
+.du-assessment__eyebrow {
+    color: var(--surface-tint);
+    margin: 0 0 var(--space-sm);
+}
+
 .du-assessment__eyebrow-line {
     display: block;
     width: 40px;
