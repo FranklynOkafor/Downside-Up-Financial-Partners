@@ -41,7 +41,7 @@ function downside_up_get_reality_check_process_data() {
                 'icon'        => 'clipboard-list',
                 'title'       => 'Assess',
                 'tag'         => 'Understand Your Reality',
-                'description' => 'Take the Reality Check™ assessment. It\'s not a quiz—it\'s a deep evaluation of your financial behavior, decisions, and life context.',
+                'description' => 'Take the Reality Check™ assessment. It\'s not a quiz it\'s a deep evaluation of your financial behavior, decisions, and life context.',
             ],
             [
                 'number'      => '03',
