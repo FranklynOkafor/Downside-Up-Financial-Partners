@@ -18,8 +18,11 @@ get_template_part('template-parts/sections/about-page/mission-vision-grid');
 // Core Principles Grid
 get_template_part('template-parts/sections/about-page/principles-grid');
 
-// What We Offer
+// What We Offer (Who We Help)
 get_template_part('template-parts/sections/about-page/what-we-offer');
+
+// Reality Check™ Process
+get_template_part('template-parts/sections/about-page/reality-check-process');
 
 
 
