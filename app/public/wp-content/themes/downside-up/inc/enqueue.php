@@ -81,6 +81,9 @@ function downside_up_enqueue_assets()
     // 10e. About Page — Reality Check™ Process
     wp_enqueue_style('du-reality-check-process', $theme_uri . '/assets/css/about-page/_reality-check-process.css', ['du-who-we-help'], $theme_version);
 
+    // 10f. About Page — FAQ Accordion
+    wp_enqueue_style('du-faq-accordion', $theme_uri . '/assets/css/about-page/_faq-accordion.css', ['du-reality-check-process'], $theme_version);
+
 
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
@@ -97,6 +100,7 @@ function downside_up_enqueue_assets()
     wp_enqueue_script('du-principles-grid', $theme_uri . '/assets/js/about-page/principles-grid.js', [], $theme_version, true);
     wp_enqueue_script('du-who-we-help', $theme_uri . '/assets/js/about-page/what-we-offer.js', [], $theme_version, true);
     wp_enqueue_script('du-reality-check-process', $theme_uri . '/assets/js/about-page/reality-check-process.js', [], $theme_version, true);
+    wp_enqueue_script('du-faq-accordion', $theme_uri . '/assets/js/about-page/faq-accordion.js', [], $theme_version, true);
 }
 
 add_action('wp_enqueue_scripts', 'downside_up_enqueue_assets');

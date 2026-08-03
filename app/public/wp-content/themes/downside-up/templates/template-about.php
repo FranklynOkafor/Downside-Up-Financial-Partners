@@ -24,6 +24,9 @@ get_template_part('template-parts/sections/about-page/what-we-offer');
 // Reality Check™ Process
 get_template_part('template-parts/sections/about-page/reality-check-process');
 
+// FAQ Accordion
+get_template_part('template-parts/sections/about-page/faq-accordion');
+
 
 
 
