@@ -27,7 +27,8 @@ get_template_part('template-parts/sections/about-page/reality-check-process');
 // FAQ Accordion
 get_template_part('template-parts/sections/about-page/faq-accordion');
 
-
+// CTA Carousel – 4 personas (will use inc/cta/cta-personas.php)
+downside_up_cta();
 
 
 get_footer();
