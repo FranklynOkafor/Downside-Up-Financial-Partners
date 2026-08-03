@@ -24,6 +24,7 @@ require_once get_template_directory() . '/inc/template-functions.php';
 // About Page
 require_once get_template_directory() . '/inc/about-page/mission-vision.php';
 require_once get_template_directory() . '/inc/about-page/core-principles.php';
+require_once get_template_directory() . '/inc/about-page/what-we-offer_data.php';
 
 // CTA
 require_once get_template_directory() . '/inc/cta/cta.php';

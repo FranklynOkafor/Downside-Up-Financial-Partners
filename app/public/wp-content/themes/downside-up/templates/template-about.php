@@ -18,6 +18,9 @@ get_template_part('template-parts/sections/about-page/mission-vision-grid');
 // Core Principles Grid
 get_template_part('template-parts/sections/about-page/principles-grid');
 
+// What We Offer
+get_template_part('template-parts/sections/about-page/what-we-offer');
+
 
 
 

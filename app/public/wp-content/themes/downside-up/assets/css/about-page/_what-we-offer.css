@@ -1,0 +1,244 @@
+/* ==========================================================================
+   WHO WE HELP — about page section
+   Section header (eyebrow + serif heading + description), a 3-column card
+   grid (3×2 on desktop), and a footer tagline strip. Same design language
+   as .du-principles (_principles-grid.css): radius-lg, shadow-level-1,
+   staggered card reveal, hover lift — extended here with a top-rule accent,
+   an icon chip + caps label identity row, and a "Primary Focus" sub-block.
+   ========================================================================== */
+
+/* ---- Section shell ---- */
+.du-who-we-help {
+    background-color: var(--background);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+/* ---- Section header ---- */
+.du-who-we-help__header {
+    max-width: 600px;
+    margin: 0 auto var(--space-xl);
+    text-align: center;
+}
+
+.du-who-we-help__eyebrow {
+    display: block;
+    color: var(--on-tertiary-container);
+    margin: 0 0 var(--space-xs);
+    letter-spacing: 0.1em;
+}
+
+.du-who-we-help__heading {
+    margin: 0 0 var(--space-sm);
+    color: var(--on-background);
+}
+
+.du-who-we-help__description {
+    color: var(--on-surface-variant);
+    margin: 0;
+}
+
+/* ---- Card grid — mobile-first, single column ---- */
+.du-who-we-help__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-md);
+}
+
+/* ---- Card shell ---- */
+.du-who-we-help-card {
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-level-1);
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+
+    /* entrance animation — same pattern as .du-principle-card */
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow),
+                box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.du-who-we-help-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.du-who-we-help-card:hover,
+.du-who-we-help-card:focus-within {
+    border-color: var(--primary-hover);
+    box-shadow: var(--shadow-level-2);
+}
+
+.du-who-we-help-card.is-visible:hover,
+.du-who-we-help-card.is-visible:focus-within {
+    transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .du-who-we-help-card {
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+    .du-who-we-help-card:hover {
+        transform: none;
+    }
+}
+
+/* ---- Top rule accent (gold bar above each card) ---- */
+.du-who-we-help-card__top-rule {
+    width: 32px;
+    height: 3px;
+    background-color: var(--on-tertiary-container);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-md);
+    flex-shrink: 0;
+}
+
+/* ---- Identity row: icon chip + caps label ---- */
+.du-who-we-help-card__identity {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.du-who-we-help-card__icon-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background-color: var(--surface-container-low);
+    color: var(--primary);
+    flex-shrink: 0;
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.du-who-we-help-card:hover .du-who-we-help-card__icon-chip,
+.du-who-we-help-card:focus-within .du-who-we-help-card__icon-chip {
+    transform: translateY(-2px) scale(1.05);
+    background-color: var(--surface-container-high);
+}
+
+.du-who-we-help-card__label {
+    color: var(--on-surface-variant);
+    letter-spacing: 0.08em;
+}
+
+/* ---- Title ---- */
+.du-who-we-help-card__title {
+    margin: 0 0 var(--space-xs);
+    color: var(--on-background);
+    /* Slightly softer than headline-xl; clamp so it scales gracefully */
+    font-size: clamp(1.3rem, 1.8vw, var(--headline-lg-size));
+}
+
+/* ---- Intro copy ---- */
+.du-who-we-help-card__intro {
+    color: var(--on-surface-variant);
+    margin: 0 0 var(--space-md);
+    flex: 1; /* pushes focus block to the bottom of every card */
+}
+
+/* ---- Primary Focus block ---- */
+.du-who-we-help-card__focus {
+    border-top: var(--border-width) solid var(--border);
+    padding-top: var(--space-md);
+    margin-top: auto;
+}
+
+.du-who-we-help-card__focus-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: var(--space-xs);
+    color: var(--primary);
+}
+
+.du-who-we-help-card__focus-label {
+    color: var(--on-background);
+    letter-spacing: 0.06em;
+}
+
+.du-who-we-help-card__focus-text {
+    color: var(--on-surface-variant);
+    margin: 0;
+}
+
+/* ---- Footer tagline strip ---- */
+.du-who-we-help__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-xl);
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--surface-container-low);
+    border-radius: var(--radius-lg);
+}
+
+.du-who-we-help__footer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background-color: var(--surface-container);
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.du-who-we-help__footer-text {
+    color: var(--on-surface-variant);
+    margin: 0;
+}
+
+/* ==========================================================================
+   TABLET — 768–1024px: two columns
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .du-who-we-help__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ==========================================================================
+   DESKTOP — >= 1025px: three columns
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .du-who-we-help__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+    }
+}
+
+/* ==========================================================================
+   MOBILE — < 768px: tighter vertical rhythm
+   ========================================================================== */
+@media (max-width: 767px) {
+    .du-who-we-help {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .du-who-we-help__header {
+        margin-bottom: var(--space-lg);
+    }
+
+    .du-who-we-help-card {
+        padding: var(--space-md);
+    }
+
+    .du-who-we-help__footer {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--space-md);
+    }
+}
