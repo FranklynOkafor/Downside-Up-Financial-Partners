@@ -84,6 +84,9 @@ function downside_up_enqueue_assets()
     // 10f. About Page — FAQ Accordion
     wp_enqueue_style('du-faq-accordion', $theme_uri . '/assets/css/about-page/_faq-accordion.css', ['du-reality-check-process'], $theme_version);
 
+    // 11. How It Works Page
+    wp_enqueue_style('du-how-it-works', $theme_uri . '/assets/css/_how-it-works.css', ['du-faq-accordion'], $theme_version);
+
 
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
@@ -91,6 +94,7 @@ function downside_up_enqueue_assets()
     wp_enqueue_script('du-stat-counter', $theme_uri . '/assets/js/stat-counter.js', [], $theme_version, true);
     wp_enqueue_script('du-assessment-engine', $theme_uri . '/assets/js/assessment-engine.js', [], $theme_version, true);
     wp_enqueue_script('du-story-editorial', $theme_uri . '/assets/js/about-page/story-editorial.js', [], $theme_version, true);
+    wp_enqueue_script('du-how-it-works', $theme_uri . '/assets/js/how-it-works.js', [], $theme_version, true);
 
     wp_enqueue_script('du-main', $theme_uri . '/assets/js/main.js', [], $theme_version, true);
     wp_enqueue_script('du-how-we-help', $theme_uri . '/assets/js/how-we-help.js', [], $theme_version, true);
