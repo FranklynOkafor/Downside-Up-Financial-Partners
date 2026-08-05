@@ -87,7 +87,10 @@ function downside_up_enqueue_assets()
     // 11. How It Works Page
     wp_enqueue_style('du-how-it-works', $theme_uri . '/assets/css/_how-it-works.css', ['du-faq-accordion'], $theme_version);
 
+    // 12. Resources Page
+    wp_enqueue_style('du-resources-hero', $theme_uri . '/assets/css/resources/_resources-hero.css', ['du-how-it-works'], $theme_version);
 
+    
     // JavaScript
     wp_enqueue_script('du-navigation', $theme_uri . '/assets/js/navigation.js', [], $theme_version, true);
     wp_enqueue_script('du-cta-carousel', $theme_uri . '/assets/js/cta-carousel.js', [], $theme_version, true);

@@ -107,6 +107,34 @@ function downside_up_get_hero_about_data()
     return $defaults;
 }
 
+
+function downside_up_get_hero_resources_data()
+{
+    $defaults = [
+        'headline'    => __('Knowledge Library', 'downside-up'),
+        'description' => __('Interpretation beats calculation. Discover insights tailored to your specific financial lifecycle.', 'downside-up'),
+        'search_placeholder' => __('Search insights…', 'downside-up'),
+    ];
+
+    if (!function_exists('get_field')) {
+        return $defaults;
+    }
+
+    $overrides = [
+        'headline'           => get_field('resources_hero_headline'),
+        'description'        => get_field('resources_hero_description'),
+        'search_placeholder' => get_field('resources_hero_search_placeholder'),
+    ];
+
+    foreach ($overrides as $key => $value) {
+        if (!empty($value)) {
+            $defaults[$key] = $value;
+        }
+    }
+
+    return $defaults;
+}
+
 /**
  * Returns the About Page story Section
  */

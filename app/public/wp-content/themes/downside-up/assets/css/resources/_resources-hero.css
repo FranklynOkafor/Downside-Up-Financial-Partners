@@ -1,0 +1,63 @@
+/* ==========================================================================
+   RESOURCES HERO
+   Simple editorial header: title + description on the left, search on the
+   right. No image/media panel, unlike the Home/About heroes — closer in
+   spirit to .du-principles__header, but left-aligned per the supplied design.
+   ========================================================================== */
+
+.du-resources-hero {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+}
+
+.du-resources-hero__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.du-resources-hero__content {
+    max-width: 60ch;
+}
+
+.du-resources-hero__headline {
+    margin: 0 0 var(--space-xs);
+}
+
+.du-resources-hero__description {
+    color: var(--on-surface-variant);
+    margin: 0;
+}
+
+.du-resources-hero__search {
+    width: 100%;
+}
+
+.du-resources-hero__search .du-search-field {
+    max-width: 100%;
+}
+
+/* ==========================================================================
+   DESKTOP (>= 1025px) — title/description left, search pinned right
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .du-resources-hero__inner {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--space-xl);
+    }
+
+    .du-resources-hero__search {
+        width: 320px;
+        flex-shrink: 0;
+        margin-top: var(--space-xs);
+    }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 767px) {
+    .du-resources-hero {
+        padding-top: var(--space-lg);
+    }
+}
