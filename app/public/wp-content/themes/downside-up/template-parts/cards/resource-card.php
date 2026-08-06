@@ -58,7 +58,7 @@ $du_badge = $du_tags && !is_wp_error($du_tags) ? $du_tags[0]->name : '';
             aria-pressed="false"
             aria-label="<?php esc_attr_e('Save this article', 'downside-up'); ?>"
         >
-            <?php echo downside_up_icon('bookmark', ['width' => 16, 'height' => 16]); ?>
+            <?php echo downside_up_icon('bookmark-plus', ['width' => 16, 'height' => 16]); ?>
         </button>
     </div>
 
