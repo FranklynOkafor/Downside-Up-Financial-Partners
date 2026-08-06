@@ -1,0 +1,293 @@
+/* ==========================================================================
+   ARTICLE CONTENT TYPOGRAPHY — Single Article template
+   Applies to whatever the_content() outputs. Generic and reusable — not
+   styled specifically for one article. Uses body-lg (20px/28px) as the
+   reading size: the closest existing token to premium editorial body copy,
+   reused rather than a new size being invented.
+   ========================================================================== */
+
+.du-article__content {
+    font-family: var(--body-lg-family);
+    font-size: var(--body-lg-size);
+    font-weight: var(--body-lg-weight);
+    line-height: var(--body-lg-line);
+    color: var(--text-body);
+}
+
+.du-article__content > * {
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+}
+
+.du-article__content > *:last-child {
+    margin-bottom: 0;
+}
+
+.du-article__content > p:first-child::first-letter {
+    /* Editorial drop-cap on the opening paragraph, serif to match headings. */
+    font-family: var(--font-serif);
+    font-size: 3.5em;
+    font-weight: 500;
+    line-height: 0.8;
+    float: left;
+    padding-right: var(--space-xs);
+    padding-top: 4px;
+    color: var(--on-background);
+}
+
+.du-article__content h2 {
+    font-family: var(--headline-lg-family);
+    font-size: var(--headline-lg-size);
+    font-weight: var(--headline-lg-weight);
+    line-height: var(--headline-lg-line);
+    color: var(--on-background);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+    scroll-margin-top: 112px; /* keeps TOC-linked headings clear of the sticky header */
+}
+
+/* No dedicated H3 token exists in the type scale (same situation
+   _typography.css already documents for .du-text-quote) — serif at 24px
+   sits deliberately between body-lg (20px) and headline-lg (32px). */
+.du-article__content h3 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    color: var(--on-background);
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-xs);
+}
+
+.du-article__content p {
+    margin-bottom: var(--space-md);
+}
+
+.du-article__content ul,
+.du-article__content ol {
+    padding-left: 1.25em;
+    margin-bottom: var(--space-md);
+}
+
+.du-article__content li + li {
+    margin-top: var(--space-xs);
+}
+
+.du-article__content li > ul,
+.du-article__content li > ol {
+    margin-top: var(--space-xs);
+    margin-bottom: 0;
+}
+
+.du-article__content a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.du-article__content a:hover,
+.du-article__content a:focus-visible {
+    color: var(--primary-container);
+}
+
+.du-article__content strong {
+    font-weight: 600;
+    color: var(--on-surface);
+}
+
+/* ---- Core blockquote (plain WP blockquote, distinct from .du-pullquote) ---- */
+.du-article__content blockquote:not(.du-pullquote) {
+    border-left: 3px solid var(--border);
+    padding-left: var(--space-md);
+    font-style: italic;
+    color: var(--on-surface-variant);
+}
+
+/* ---- Images / figures / captions ---- */
+.du-article__content img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-level-1);
+}
+
+.du-article__content figure {
+    margin: var(--space-lg) 0;
+}
+
+.du-article__content figcaption,
+.du-article__content .wp-caption-text {
+    font-family: var(--caption-family);
+    font-size: var(--caption-size);
+    line-height: var(--caption-line);
+    font-style: italic;
+    color: var(--outline);
+    text-align: center;
+    margin-top: var(--space-xs);
+}
+
+/* ---- Tables ---- */
+.du-article__content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-sans);
+    font-size: var(--body-md-size);
+}
+
+.du-article__content th,
+.du-article__content td {
+    text-align: left;
+    padding: var(--space-xs) var(--space-sm);
+    border-bottom: var(--border-width) solid var(--border);
+}
+
+.du-article__content th {
+    background-color: var(--surface-container-low);
+    color: var(--on-surface);
+    font-weight: 600;
+}
+
+/* ---- Code ---- */
+.du-article__content code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--surface-container-low);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+}
+
+.du-article__content pre {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 22px;
+    background-color: var(--surface-container-low);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-sm);
+    overflow-x: auto;
+}
+
+.du-article__content pre code {
+    background: none;
+    padding: 0;
+}
+
+/* ==========================================================================
+   PULL QUOTE — [du_pullquote] shortcode
+   Reuses .du-text-quote (existing serif-italic style) for the quote text.
+   ========================================================================== */
+.du-pullquote {
+    background-color: var(--surface-container-low);
+    border-left: 4px solid var(--primary-container);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin: var(--space-lg) 0;
+}
+
+.du-pullquote__mark {
+    color: var(--on-background);
+}
+
+.du-pullquote__mark p {
+    margin: 0 0 var(--space-xs);
+}
+
+.du-pullquote__mark p:last-child {
+    margin-bottom: 0;
+}
+
+.du-pullquote__citation {
+    display: block;
+    font-style: normal;
+    color: var(--on-surface-variant);
+    margin-top: var(--space-sm);
+}
+
+/* ==========================================================================
+   EDITORIAL CALLOUT — [du_callout] shortcode
+   Border/icon colors reuse the existing semantic "Traffic Light" tokens
+   (--success / --fragile / --secondary) from _variable.css instead of new
+   callout-specific colors — the same system the article's own "Traffic
+   Light" content describes.
+   ========================================================================== */
+.du-callout {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.du-callout__icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+}
+
+.du-callout__body {
+    min-width: 0;
+}
+
+.du-callout__title {
+    margin: 0 0 4px;
+    color: var(--on-surface-variant);
+}
+
+.du-callout__content {
+    color: var(--text-body);
+}
+
+.du-callout__content p:last-child {
+    margin-bottom: 0;
+}
+
+.du-callout--insight {
+    border-left: 4px solid var(--primary-container);
+}
+.du-callout--insight .du-callout__icon {
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+}
+
+.du-callout--warning {
+    border-left: 4px solid var(--fragile);
+}
+.du-callout--warning .du-callout__icon {
+    background-color: var(--fragile);
+    color: var(--on-primary);
+}
+
+.du-callout--recommendation {
+    border-left: 4px solid var(--success);
+}
+.du-callout--recommendation .du-callout__icon {
+    background-color: var(--success);
+    color: var(--on-primary);
+}
+
+.du-callout--key-takeaway {
+    border-left: 4px solid var(--secondary);
+}
+.du-callout--key-takeaway .du-callout__icon {
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+}
+
+@media (max-width: 767px) {
+    .du-article__content {
+        font-size: var(--body-md-size);
+        line-height: var(--body-md-line);
+    }
+
+    .du-pullquote,
+    .du-callout {
+        padding: var(--space-sm);
+    }
+}

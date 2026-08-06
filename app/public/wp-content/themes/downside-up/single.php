@@ -1,91 +1,110 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying all single posts.
  *
- * @link https://wordpress.org
+ * Assembles the Lego components built for the premium editorial Single
+ * Article template:
+ *   - template-parts/heroes/hero-article.php        (Article Hero)
+ *   - template-parts/components/featured-image.php  (Featured Image)
+ *   - template-parts/components/reading-progress.php(Reading Progress Bar)
+ *   - template-parts/components/table-of-contents.php (Sticky TOC)
+ *   - template-parts/components/share-toolbar.php   (Floating Share Toolbar)
+ *   - template-parts/components/author-card.php     (Author Card)
+ *   - template-parts/components/article-navigation.php (Prev/Next)
+ *   - template-parts/sections/related-articles.php  (Related Articles)
+ * Article body typography/pull-quotes/callouts come from _article-content.css
+ * (applies to whatever the_content() outputs — no per-page styling here).
+ *
  * @package Downside-up
  */
 
-get_header(); // Includes header.php ?>
+get_header();
+?>
+
+<?php get_template_part('template-parts/components/reading-progress'); ?>
 
 <main id="primary" class="site-main">
-    <div class="container">
 
-        <?php
-        // Start the WordPress Loop
-        while ( have_posts() ) :
-            the_post();
-            ?>
-
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                
-                <header class="entry-header">
-                    <?php 
-                    // Display Post Title
-                    the_title( '<h1 class="entry-title">', '</h1>' ); 
-                    ?>
-
-                    <div class="entry-meta">
-                        <span class="posted-on">
-                            Published on: <?php echo get_the_date(); ?>
-                        </span>
-                        <span class="author">
-                            by <?php the_author(); ?>
-                        </span>
-                    </div>
-                </header>
-
-                <?php 
-                // Display Featured Image if it exists
-                if ( has_post_thumbnail() ) : ?>
-                    <div class="post-thumbnail">
-                        <?php the_post_thumbnail( 'large' ); ?>
-                    </div>
-                <?php endif; ?>
-
-                <div class="entry-content">
-                    <?php
-                    // Display Core Post Content
-                    the_content();
-
-                    // Paginate post if split using <!--nextpage-->
-                    wp_link_pages( array(
-                        'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'your-theme' ),
-                        'after'  => '</div>',
-                    ) );
-                    ?>
-                </div>
-
-                <footer class="entry-footer">
-                    <span class="cat-links">
-                        Categories: <?php the_category( ', ' ); ?>
-                    </span>
-                    <?php 
-                    // Display Tags if available
-                    the_tags( '<span class="tags-links">Tags: ', ', ', '</span>' ); 
-                    ?>
-                </footer>
-
-            </article>
-
-            <?php
-            // If comments are open or there is at least one comment, load the comment template.
-            if ( comments_open() || get_comments_number() ) :
-                comments_template();
-            endif;
-
-            // Optional: Dynamic Next/Previous Post Navigation Links
-            the_post_navigation( array(
-                'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'your-theme' ) . '</span> <span class="nav-title">%title</span>',
-                'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'your-theme' ) . '</span> <span class="nav-title">%title</span>',
-            ) );
-
-        endwhile; // End of the loop.
+    <?php
+    while (have_posts()) :
+        the_post();
         ?>
 
-    </div>
+        <article id="post-<?php the_ID(); ?>" <?php post_class('du-article'); ?>>
+
+            <?php get_template_part('template-parts/heroes/hero', 'article'); ?>
+
+            <div class="du-container du-article__featured-image-wrap">
+                <?php
+                get_template_part('template-parts/components/featured-image', null, [
+                    'post' => get_post(),
+                    'size' => 'large',
+                ]);
+                ?>
+            </div>
+
+            <div class="du-article-layout du-container">
+
+                <?php get_template_part('template-parts/components/table-of-contents'); ?>
+
+                <div class="du-article-layout__content">
+
+                    <div class="du-article__content" data-du-article-content>
+                        <?php
+                        the_content();
+
+                        wp_link_pages([
+                            'before' => '<div class="du-article__pagination du-text-body-md">' . esc_html__('Pages:', 'downside-up'),
+                            'after'  => '</div>',
+                        ]);
+                        ?>
+                    </div>
+
+                    <?php
+                    // Assessment CTA — reuses the existing CTA system's
+                    // 'inline' variant (see template-parts/cta/cta-card.php)
+                    // with the 'resource-discovery' persona, the persona
+                    // already written for general/undecided readers.
+                    downside_up_cta('resource-discovery', 'inline');
+                    ?>
+
+                </div>
+
+                <?php get_template_part('template-parts/components/share-toolbar'); ?>
+
+            </div>
+
+            <div class="du-container">
+                <div class="du-article-end">
+                    <?php get_template_part('template-parts/components/author-card'); ?>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="du-container">
+            <div class="du-article-end">
+                <?php get_template_part('template-parts/components/article-navigation'); ?>
+            </div>
+        </div>
+
+        <?php
+        if (comments_open() || get_comments_number()) :
+            ?>
+            <div class="du-container">
+                <div class="du-article-end">
+                    <?php comments_template(); ?>
+                </div>
+            </div>
+            <?php
+        endif;
+        ?>
+
+    <?php endwhile; ?>
+
+    <?php get_template_part('template-parts/sections/related-articles'); ?>
+
 </main>
 
 <?php
-get_sidebar(); // Includes sidebar.php (Optional)
-get_footer();  // Includes footer.php
+get_footer();

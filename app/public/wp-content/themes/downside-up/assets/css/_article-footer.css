@@ -1,0 +1,173 @@
+/* ==========================================================================
+   ARTICLE END WRAPPER
+   Constrains Author Card + Prev/Next Navigation to the same reading width
+   as the content column above (680px, see .du-article-layout in
+   _article-layout.css), so they stay visually aligned under it.
+   ========================================================================== */
+.du-article-end {
+    max-width: 680px;
+    margin-inline: auto;
+}
+
+/* ==========================================================================
+   AUTHOR CARD
+   ========================================================================== */
+.du-author-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-lg) 0;
+    border-top: var(--border-width) solid var(--border);
+}
+
+.du-author-card__avatar {
+    flex-shrink: 0;
+    display: block;
+    line-height: 0;
+}
+
+.du-author-card__avatar-image {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-full);
+    display: block;
+}
+
+.du-author-card__body {
+    min-width: 0;
+}
+
+.du-author-card__name {
+    display: block;
+    color: var(--on-background);
+    text-decoration: none;
+}
+
+.du-author-card__name:hover,
+.du-author-card__name:focus-visible {
+    color: var(--primary);
+}
+
+.du-author-card__role {
+    color: var(--outline);
+    margin: 4px 0 var(--space-xs);
+}
+
+.du-author-card__bio {
+    color: var(--on-surface-variant);
+    margin: 0 0 var(--space-xs);
+    max-width: 65ch;
+}
+
+.du-author-card__social {
+    display: flex;
+    gap: var(--space-xs);
+    margin-top: var(--space-xs);
+}
+
+.du-author-card__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    background-color: var(--surface-container-low);
+    color: var(--on-surface-variant);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.du-author-card__social-link:hover,
+.du-author-card__social-link:focus-visible {
+    color: var(--primary);
+    background-color: var(--surface-container);
+}
+
+/* ==========================================================================
+   PREVIOUS / NEXT NAVIGATION
+   ========================================================================== */
+.du-article-nav {
+    border-top: var(--border-width) solid var(--border);
+    border-bottom: var(--border-width) solid var(--border);
+}
+
+.du-article-nav__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+}
+
+.du-article-nav__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    min-width: 0;
+    text-decoration: none;
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    transition: background-color var(--transition-fast);
+}
+
+.du-article-nav__link:hover,
+.du-article-nav__link:focus-visible {
+    background-color: var(--surface-container-low);
+}
+
+.du-article-nav__link--next {
+    justify-content: flex-end;
+    text-align: right;
+    grid-column: 2;
+}
+
+.du-article-nav__icon {
+    flex-shrink: 0;
+    color: var(--outline);
+}
+
+.du-article-nav__text {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.du-article-nav__label {
+    color: var(--outline);
+}
+
+.du-article-nav__title {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 24px;
+    color: var(--on-background);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+    .du-article-nav__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .du-article-nav__link--next {
+        grid-column: 1;
+        justify-content: flex-start;
+        text-align: left;
+    }
+}
+
+/* ==========================================================================
+   RELATED ARTICLES
+   Section wrapper only — cards/grid come from the existing
+   .du-resource-grid__grid + resource-card.php as-is.
+   ========================================================================== */
+.du-related-articles {
+    padding-top: var(--space-xl);
+}
+
+.du-related-articles__heading {
+    margin-bottom: var(--space-lg);
+}

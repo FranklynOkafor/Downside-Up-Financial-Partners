@@ -1,0 +1,180 @@
+/* ==========================================================================
+   READING LAYOUT — Single Article template
+   Mobile/tablet (< 1025px): single column, TOC above content, share
+   toolbar becomes a static horizontal row beneath the TOC.
+   Desktop (>= 1025px): 3-column grid — sticky TOC | content | sticky share
+   toolbar — matching this system's existing 1025px desktop threshold
+   (see _layout.css / _header.css).
+   ========================================================================== */
+
+.du-article-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "toc"
+        "share"
+        "content";
+    gap: var(--space-lg);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+}
+
+.du-article-layout__content {
+    grid-area: content;
+    min-width: 0;
+}
+
+@media (min-width: 1025px) {
+    .du-article-layout {
+        grid-template-columns: 220px minmax(0, 680px) 56px;
+        grid-template-areas: "toc content share";
+        justify-content: center;
+        align-items: start;
+    }
+}
+
+/* ---- Sticky Table of Contents ---- */
+.du-toc {
+    grid-area: toc;
+}
+
+.du-toc__label {
+    color: var(--outline);
+    margin: 0 0 var(--space-sm);
+}
+
+.du-toc__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.du-toc__link {
+    display: block;
+    padding: 6px 0 6px var(--space-sm);
+    border-left: 2px solid transparent;
+    color: var(--on-surface-variant);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.du-toc__link:hover,
+.du-toc__link:focus-visible {
+    color: var(--on-surface);
+}
+
+.du-toc__link.is-active {
+    color: var(--on-surface);
+    font-weight: 600;
+    border-left-color: var(--primary);
+}
+
+@media (min-width: 1025px) {
+    .du-toc {
+        position: sticky;
+        /* Header height (~88px) + breathing room, matching the pragmatic
+           fixed-offset approach already used for the header threshold. */
+        top: 112px;
+        align-self: start;
+    }
+}
+
+/* ---- Floating Share Toolbar ---- */
+.du-share-toolbar {
+    grid-area: share;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.du-share-toolbar__btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    box-shadow: var(--shadow-level-1);
+    color: var(--on-surface-variant);
+    cursor: pointer;
+    transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.du-share-toolbar__btn:hover,
+.du-share-toolbar__btn:focus-visible {
+    color: var(--primary);
+    border-color: var(--primary-hover);
+}
+
+/* .is-saved is toggled by the existing resource-card.js bookmark logic —
+   reused as-is, not redefined. */
+.du-share-toolbar__btn.is-saved,
+.du-share-toolbar__btn[aria-pressed="true"] {
+    color: var(--primary);
+    border-color: var(--primary-hover);
+}
+
+.du-share-toolbar__btn.is-saved svg {
+    fill: currentColor;
+}
+
+.du-share-toolbar__btn.is-copied::after {
+    content: "Link copied";
+    position: absolute;
+    top: 50%;
+    left: calc(100% + var(--space-xs));
+    transform: translateY(-50%);
+    background-color: var(--on-surface);
+    color: var(--surface);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 4px var(--space-xs);
+    border-radius: var(--radius-sm);
+}
+
+@media (min-width: 1025px) {
+    .du-share-toolbar {
+        flex-direction: column;
+        position: sticky;
+        top: 112px;
+        align-self: start;
+    }
+
+    .du-share-toolbar__btn.is-copied::after {
+        left: auto;
+        right: calc(100% + var(--space-xs));
+    }
+}
+
+/* ---- Reading Progress Bar ----
+   Reuses .du-progress-bar / .du-progress-bar__fill as-is; only position
+   and radius are overridden here since the base component was built for
+   an inline (non-fixed) context in the assessment engine. */
+.du-reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+    background-color: transparent;
+    z-index: 60; /* above .du-header's documented z-index: 50 */
+}
+
+.du-reading-progress .du-progress-bar__fill {
+    border-radius: 0;
+    transition: width var(--transition-fast);
+}

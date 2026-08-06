@@ -38,6 +38,10 @@ require_once get_template_directory() . '/inc/cta/cta.php';
 require_once get_template_directory() . '/inc/testimonials.php';
 
 
+// Article-specific helpers + shortcodes — companion to template-parts/heroes/hero-article.php
+// and the other single.php components (TOC, share toolbar, etc.).
+require_once get_template_directory() . '/inc/article.php';
+
 
 
 ?>

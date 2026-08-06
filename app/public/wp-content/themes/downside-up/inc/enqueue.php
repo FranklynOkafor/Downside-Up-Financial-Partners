@@ -96,6 +96,12 @@ function downside_up_enqueue_assets()
     wp_enqueue_style('du-resources-assessment-cta', $theme_uri . '/assets/css/resources/_assessment-cta.css', ['du-resource-grid'], $theme_version);
     wp_enqueue_style('du-newsletter', $theme_uri . '/assets/css/_newsletter.css', ['du-resources-assessment-cta'], $theme_version);
 
+    // 13. Single Article template
+    wp_enqueue_style('du-article-hero', $theme_uri . '/assets/css/_article-hero.css', ['du-newsletter'], $theme_version);
+    wp_enqueue_style('du-article-layout', $theme_uri . '/assets/css/_article-layout.css', ['du-article-hero'], $theme_version);
+    wp_enqueue_style('du-article-content', $theme_uri . '/assets/css/_article-content.css', ['du-article-layout'], $theme_version);
+    wp_enqueue_style('du-article-footer', $theme_uri . '/assets/css/_article-footer.css', ['du-article-content'], $theme_version);
+
 
 
 
@@ -117,6 +123,11 @@ function downside_up_enqueue_assets()
     wp_enqueue_script('du-reality-check-process', $theme_uri . '/assets/js/about-page/reality-check-process.js', [], $theme_version, true);
     wp_enqueue_script('du-faq-accordion', $theme_uri . '/assets/js/about-page/faq-accordion.js', [], $theme_version, true);
     wp_enqueue_script('du-resource-card', $theme_uri . '/assets/js/resource-card.js', [], $theme_version, true);
+
+    // Single Article template
+    wp_enqueue_script('du-article-toc', $theme_uri . '/assets/js/article-toc.js', [], $theme_version, true);
+    wp_enqueue_script('du-article-progress', $theme_uri . '/assets/js/article-progress.js', [], $theme_version, true);
+    wp_enqueue_script('du-article-share', $theme_uri . '/assets/js/article-share.js', [], $theme_version, true);
 }
 
 add_action('wp_enqueue_scripts', 'downside_up_enqueue_assets');

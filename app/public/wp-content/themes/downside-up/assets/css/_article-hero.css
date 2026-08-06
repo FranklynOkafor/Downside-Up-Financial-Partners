@@ -1,0 +1,134 @@
+/* ==========================================================================
+   ARTICLE HERO — Single Article template
+   Background reuses --surface-alt (already defined, used elsewhere for
+   soft off-white sections) instead of a new color. Type reuses existing
+   du-text-* utilities: display-lg for the title (same scale as the
+   homepage hero), quote__lg for the excerpt (serif italic, already the
+   theme's quote style), label-caps for the eyebrow.
+   ========================================================================== */
+
+.du-article-hero {
+    background-color: var(--surface-alt);
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+}
+
+.du-article-hero__inner {
+    max-width: 900px;
+}
+
+.du-article-hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--on-surface-variant);
+    margin: 0 0 var(--space-md);
+}
+
+.du-article-hero__category {
+    color: var(--on-surface-variant);
+    text-decoration: none;
+}
+
+.du-article-hero__category:hover,
+.du-article-hero__category:focus-visible {
+    color: var(--primary);
+}
+
+.du-article-hero__dot {
+    color: var(--outline);
+}
+
+.du-article-hero__reading-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.du-article-hero__title {
+    margin-bottom: var(--space-md);
+}
+
+.du-article-hero__excerpt {
+    color: var(--on-surface-variant);
+    max-width: 65ch;
+    margin: 0 0 var(--space-lg);
+}
+
+.du-article-hero__byline {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.du-article-hero__byline-avatar {
+    display: block;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+.du-article-hero__avatar-image {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    display: block;
+}
+
+.du-article-hero__byline-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.du-article-hero__byline-name {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--on-surface);
+    text-decoration: none;
+}
+
+.du-article-hero__byline-name:hover,
+.du-article-hero__byline-name:focus-visible {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.du-article-hero__byline-date {
+    color: var(--on-surface-variant);
+}
+
+/* ==========================================================================
+   FEATURED IMAGE — standalone component, also used at the top of the
+   article (below the hero). Same card language (radius-lg, shadow-level-1)
+   as .du-resource-card__media / .du-story__image.
+   ========================================================================== */
+
+.du-featured-image {
+    margin: 0;
+}
+
+.du-article__featured-image-wrap {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.du-featured-image__img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-level-1);
+    object-fit: cover;
+}
+
+.du-featured-image__caption {
+    display: block;
+    color: var(--outline);
+    font-style: italic;
+    margin-top: var(--space-xs);
+}
+
+@media (max-width: 767px) {
+    .du-article-hero {
+        padding-top: var(--space-lg);
+    }
+}
