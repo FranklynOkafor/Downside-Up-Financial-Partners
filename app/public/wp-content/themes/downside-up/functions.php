@@ -15,6 +15,7 @@ require_once get_template_directory() . '/inc/hero-stats.php';
 require_once get_template_directory() . '/inc/assessment-engine.php';
 require_once get_template_directory() . '/inc/how-we-help.php';
 require_once get_template_directory() . '/inc/how-it-works-data.php';
+require_once get_template_directory() . '/inc/resources.php';
 
 
 require_once get_template_directory() . '/inc/menus.php';

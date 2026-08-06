@@ -54,3 +54,58 @@
 .du-search-field__input::-webkit-search-results-decoration {
     -webkit-appearance: none;
 }
+
+/* ---- Badge ----
+   Small pill label (e.g. "Featured", category/tag names on resource cards).
+   Neutral by default; kept to one calm style rather than per-category
+   colors, to match the site's restrained editorial aesthetic. */
+.du-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--surface-container-low);
+    color: var(--on-surface-variant);
+    border-radius: var(--radius-full);
+    padding: 4px var(--space-xs);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* ---- Arrow Link ----
+   Text link with a trailing arrow icon that nudges forward on hover/focus.
+   Used for "Read Full Article", "Read Article", and similar CTAs. */
+.du-link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.du-link-arrow__icon {
+    display: inline-flex;
+    transition: transform var(--transition-fast);
+}
+
+.du-link-arrow:hover .du-link-arrow__icon,
+.du-link-arrow:focus-visible .du-link-arrow__icon {
+    transform: translateX(4px);
+}
+
+/* ---- Media Placeholder ----
+   Shown in place of a featured image when a post has none. */
+.du-media-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--surface-container-low);
+    color: var(--outline);
+}
+

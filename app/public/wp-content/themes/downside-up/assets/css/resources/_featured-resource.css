@@ -1,0 +1,97 @@
+/* ==========================================================================
+   FEATURED RESOURCE
+   Large two-column card (image + content). Same card language as
+   .du-principle-card (about-page/_principles-grid.css): border, radius-lg,
+   shadow-level-1, hover lift — kept static (no scroll-reveal JS), since
+   this card sits above the fold and is visible on load.
+   ========================================================================== */
+
+.du-featured-resource {
+    padding-bottom: var(--space-lg);
+}
+
+.du-featured-resource__card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-level-1);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.du-featured-resource__card:hover,
+.du-featured-resource__card:focus-within {
+    border-color: var(--primary-hover);
+    box-shadow: var(--shadow-level-2);
+}
+
+.du-featured-resource__media {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+}
+
+.du-featured-resource__image,
+.du-featured-resource__media .du-media-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.du-featured-resource__content {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+.du-featured-resource__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.du-featured-resource__reading-time {
+    color: var(--on-surface-variant);
+}
+
+.du-featured-resource__title {
+    margin: 0 0 var(--space-sm);
+}
+
+.du-featured-resource__title-link {
+    color: var(--on-surface);
+}
+
+.du-featured-resource__title-link:hover,
+.du-featured-resource__title-link:focus-visible {
+    color: var(--primary);
+}
+
+.du-featured-resource__excerpt {
+    color: var(--on-surface-variant);
+    margin: 0 0 var(--space-md);
+}
+
+/* ==========================================================================
+   DESKTOP (>= 1025px) — side-by-side
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .du-featured-resource__card {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .du-featured-resource__media {
+        width: 45%;
+        aspect-ratio: auto;
+    }
+
+    .du-featured-resource__content {
+        width: 55%;
+        padding: var(--space-xl);
+        justify-content: center;
+    }
+}
