@@ -71,5 +71,14 @@ return [
         'button_text'     => __('Check Your Retirement Readiness', 'downside-up'),
         'supporting_text' => __('Get a clearer picture of your financial preparedness and next steps.', 'downside-up'),
     ],
+    
+    'resource-discovery' => [
+        'label'           => __('Resource Discovery', 'downside-up'),
+        'icon'            => 'trending-up',
+        'headline'        => __('Missing a Tailored Perspective?', 'downside-up'),
+        'description'     => __('Start our proprietary assessment to receive curated resources matching your financial standing.', 'downside-up'),
+        'button_text'     => __('Take the Assessment', 'downside-up'),
+        'supporting_text' => __('Free assessment • Takes about 5 minutes', 'downside-up'),
+    ],
 
 ];

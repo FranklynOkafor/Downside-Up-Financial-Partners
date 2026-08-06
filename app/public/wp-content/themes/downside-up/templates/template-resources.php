@@ -16,4 +16,6 @@ get_template_part('template-parts/sections/resources/goal-navigation');
 
 get_template_part('template-parts/sections/resources/resource-grid');
 
+get_template_part('template-parts/sections/resources/assessment-cta');
+
 get_footer();

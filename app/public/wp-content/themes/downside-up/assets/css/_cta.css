@@ -152,6 +152,51 @@
     transform: scale(1.3);
 }
 
+/* ==========================================================================
+   COMPACT VARIANT
+   Narrow, left-aligned vertical card for grid/sidebar contexts (e.g. the
+   Resources page), where the full-width .du-cta section doesn't fit.
+   Same color/radius/token language as the full variant, different layout.
+   ========================================================================== */
+.du-cta--compact {
+    width: 100%;
+    max-width: 360px;
+    margin: 0;
+    text-align: left;
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.du-cta__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+    margin-bottom: var(--space-md);
+}
+
+.du-cta__headline--compact {
+    max-width: none;
+    margin-bottom: var(--space-xs);
+}
+
+.du-cta__description--compact {
+    color: var(--on-primary-container);
+    max-width: none;
+    margin-bottom: var(--space-md);
+}
+
+.du-cta--compact .du-cta__primary {
+    width: 100%;
+    text-align: center;
+}
+
 /* ---- Responsive ---- */
 @media (max-width: 767px) {
     .du-cta__inner {

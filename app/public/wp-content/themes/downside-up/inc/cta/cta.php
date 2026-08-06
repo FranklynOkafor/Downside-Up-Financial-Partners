@@ -49,14 +49,17 @@ function downside_up_cta_assessment_url($persona_key)
 /**
  * Public entry point for placing a CTA anywhere in the theme.
  *
- * downside_up_cta();                          -> full rotating carousel (all personas)
- * downside_up_cta( 'small-business-owner' );   -> single static CTA for that persona
+ * downside_up_cta();                              -> full rotating carousel (all personas)
+ * downside_up_cta( 'small-business-owner' );        -> single static full-width CTA
+ * downside_up_cta( 'resource-discovery', 'compact' ); -> compact card, e.g. inside a
+ *                                                        content grid or sidebar
  *
  * Use the carousel only on broad-entry pages (Home, About, Resources, Blog,
  * landing pages). Use a single persona CTA on pages that already know their
- * audience (e.g. a "For Small Business Owners" service page).
+ * audience (e.g. a "For Small Business Owners" service page). Use the
+ * compact variant anywhere the full-width card doesn't fit (grids, sidebars).
  */
-function downside_up_cta($persona_key = null)
+function downside_up_cta($persona_key = null, $variant = 'full')
 {
     if ($persona_key) {
         if (!downside_up_get_cta_persona($persona_key)) {
@@ -65,6 +68,7 @@ function downside_up_cta($persona_key = null)
 
         get_template_part('template-parts/cta/cta-card', null, [
             'persona_key' => $persona_key,
+            'variant'     => $variant,
         ]);
 
         return;

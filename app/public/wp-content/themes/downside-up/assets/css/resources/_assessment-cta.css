@@ -1,0 +1,14 @@
+/* ==========================================================================
+   ASSESSMENT CTA (Resources page placement)
+   Centers the reusable compact CTA card. All card styling lives in
+   _cta.css (.du-cta--compact) since that's shared across the whole theme.
+   ========================================================================== */
+
+.du-resources-assessment-cta {
+    padding-bottom: var(--space-xl);
+}
+
+.du-resources-assessment-cta__inner {
+    display: flex;
+    justify-content: center;
+}

@@ -5,6 +5,10 @@
  *
  * Args (passed via get_template_part's third parameter):
  *   'persona_key'       (string, required) — key into inc/cta/cta-personas.php
+ *   'variant'           (string, optional) — 'full' (default) or 'compact'.
+ *                        'compact' is a narrow, vertical card for grid/sidebar
+ *                        contexts (e.g. the Resources page); 'full' is the
+ *                        wide horizontal section used on Home/About.
  *   'is_carousel_slide' (bool, optional)   — adds slide-specific classes/attrs
  *
  * Content lives entirely in inc/cta/cta-personas.php — nothing persona-
@@ -19,9 +23,36 @@ if (!$du_persona) {
     return;
 }
 
-$du_is_slide       = !empty($args['is_carousel_slide']);
-$du_is_active      = !empty($args['is_active']);
+$du_variant        = !empty($args['variant']) ? $args['variant'] : 'full';
 $du_assessment_url = downside_up_cta_assessment_url($du_persona_key);
+
+if ('compact' === $du_variant) :
+    ?>
+    <div class="du-cta du-cta--compact" data-persona="<?php echo esc_attr($du_persona_key); ?>">
+        <?php if (!empty($du_persona['icon'])) : ?>
+            <span class="du-cta__icon" aria-hidden="true">
+                <?php echo downside_up_icon($du_persona['icon'], ['width' => 20, 'height' => 20]); ?>
+            </span>
+        <?php endif; ?>
+
+        <h2 class="du-cta__headline du-cta__headline--compact du-text-headline-lg">
+            <?php echo esc_html($du_persona['headline']); ?>
+        </h2>
+
+        <p class="du-cta__description du-cta__description--compact du-text-body-md">
+            <?php echo esc_html($du_persona['description']); ?>
+        </p>
+
+        <a href="<?php echo esc_url($du_assessment_url); ?>" class="du-btn du-btn--inverse du-cta__primary">
+            <?php echo esc_html($du_persona['button_text']); ?>
+        </a>
+    </div>
+    <?php
+    return;
+endif;
+
+$du_is_slide  = !empty($args['is_carousel_slide']);
+$du_is_active = !empty($args['is_active']);
 
 $du_classes = 'du-cta';
 if ($du_is_slide) {
