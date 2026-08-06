@@ -12,4 +12,6 @@ get_template_part('template-parts/heroes/hero', 'resources');
 
 get_template_part('template-parts/sections/resources/featured-resource');
 
+get_template_part('template-parts/sections/resources/goal-navigation');
+
 get_footer();

@@ -1,0 +1,49 @@
+/* ==========================================================================
+   GOAL NAVIGATION
+   Desktop: pills wrap naturally in a flex row (the design shows them all
+   fitting on one line, but wrapping is the safe/graceful fallback once
+   more categories are added — no separate desktop-only layout needed).
+   Mobile: single row, native horizontal scroll, no JS.
+   ========================================================================== */
+
+.du-goal-nav {
+    padding-bottom: var(--space-lg);
+}
+
+.du-goal-nav__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.du-goal-nav__item {
+    flex-shrink: 0;
+}
+
+.du-goal-nav__item a{
+    text-decoration: none;
+}
+
+/* ---- Mobile: scrollable row, no wrapping ---- */
+@media (max-width: 767px) {
+    .du-goal-nav__scroller {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        /* Bleed to the viewport edge so the last pill isn't clipped by the
+           container's own padding while still scrolling under it. */
+        padding-bottom: 2px;
+    }
+
+    .du-goal-nav__scroller::-webkit-scrollbar {
+        display: none;
+    }
+
+    .du-goal-nav__list {
+        flex-wrap: nowrap;
+    }
+}

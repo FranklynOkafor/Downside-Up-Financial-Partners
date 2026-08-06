@@ -97,6 +97,44 @@
     transform: translateX(4px);
 }
 
+/* ---- Pill ----
+   Interactive pill link/toggle (distinct from .du-badge, which is a static
+   label). Used by Goal Navigation today; generic enough for any future
+   filter row or toggle group. */
+.du-pill {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background-color: var(--surface);
+    color: var(--on-surface-variant);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-full);
+    padding: var(--space-xs) var(--space-sm);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.du-pill:hover {
+    border-color: var(--primary-hover);
+    color: var(--on-surface);
+}
+
+.du-pill:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--surface-container-low);
+    border-color: var(--primary-hover);
+}
+
+.du-pill--active,
+.du-pill--active:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--on-primary);
+}
+
 /* ---- Media Placeholder ----
    Shown in place of a featured image when a post has none. */
 .du-media-placeholder {

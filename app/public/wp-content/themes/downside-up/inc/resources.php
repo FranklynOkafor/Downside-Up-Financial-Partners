@@ -66,3 +66,56 @@ function downside_up_reading_time($post_id = null)
 
     return max(1, (int) ceil($word_count / 200));
 }
+/**
+ * Goal Navigation terms.
+ *
+ * Categories = pills (per project convention). Only categories with at
+ * least one published post are shown, so the row never has dead links.
+ * "All Resources" is prepended as the default/reset state.
+ *
+ * @return array List of ['label' => string, 'slug' => string|null].
+ *               A null slug represents "All Resources".
+ */
+function downside_up_get_resource_goal_terms()
+{
+    $terms = [
+        [
+            'label' => __('All Resources', 'downside-up'),
+            'slug'  => null,
+        ],
+    ];
+
+    $categories = get_categories([
+        'hide_empty' => true,
+        'orderby'    => 'name',
+        'order'      => 'ASC',
+    ]);
+
+    foreach ($categories as $category) {
+        $terms[] = [
+            'label' => $category->name,
+            'slug'  => $category->slug,
+        ];
+    }
+
+    return $terms;
+}
+
+/**
+ * The currently active goal/category, read from the 'resource_category'
+ * query var. Shared by the Goal Navigation (to mark the active pill) and
+ * the Resource Grid (to filter its query) so the two stay in sync without
+ * any JS/AJAX — filtering is a plain link + query var.
+ *
+ * @return string|null Category slug, or null for "All Resources".
+ */
+function downside_up_get_active_resource_goal()
+{
+    if (empty($_GET['resource_category'])) {
+        return null;
+    }
+
+    $slug = sanitize_title(wp_unslash($_GET['resource_category']));
+
+    return term_exists($slug, 'category') ? $slug : null;
+}
