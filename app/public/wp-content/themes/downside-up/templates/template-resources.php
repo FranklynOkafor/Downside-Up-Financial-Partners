@@ -14,4 +14,6 @@ get_template_part('template-parts/sections/resources/featured-resource');
 
 get_template_part('template-parts/sections/resources/goal-navigation');
 
+get_template_part('template-parts/sections/resources/resource-grid');
+
 get_footer();

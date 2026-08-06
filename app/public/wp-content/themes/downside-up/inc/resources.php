@@ -119,3 +119,40 @@ function downside_up_get_active_resource_goal()
 
     return term_exists($slug, 'category') ? $slug : null;
 }
+
+/**
+ * Query for the Resource Grid.
+ *
+ * Respects the active Goal Navigation filter (category) and excludes the
+ * post currently shown in the Featured Resource section, so the same
+ * article never appears twice on the page.
+ *
+ * @param int $paged
+ * @param int $per_page
+ * @return WP_Query
+ */
+function downside_up_get_resource_grid_query($paged = 1, $per_page = 6)
+{
+    $args = [
+        'post_type'      => 'post',
+        'post_status'    => 'publish',
+        'posts_per_page' => $per_page,
+        'paged'          => $paged,
+    ];
+
+    $active_goal = downside_up_get_active_resource_goal();
+    if ($active_goal) {
+        $args['category_name'] = $active_goal;
+    }
+
+    // Don't repeat the Featured Resource post lower down the page — only
+    // on the unfiltered, first page, matching where it's actually shown.
+    if (!$active_goal && 1 === $paged) {
+        $featured_post = downside_up_get_featured_resource_post();
+        if ($featured_post) {
+            $args['post__not_in'] = [$featured_post->ID];
+        }
+    }
+
+    return new WP_Query($args);
+}

@@ -1,0 +1,130 @@
+/* ==========================================================================
+   RESOURCE CARD
+   The standard article card for the theme. Same card language as
+   .du-principle-card / .du-featured-resource__card: border, radius-lg,
+   shadow-level-1, hover lift.
+   ========================================================================== */
+
+.du-resource-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-level-1);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal), border-color var(--transition-normal), transform var(--transition-normal);
+}
+
+.du-resource-card:hover,
+.du-resource-card:focus-within {
+    border-color: var(--primary-hover);
+    box-shadow: var(--shadow-level-2);
+    transform: translateY(-2px);
+}
+
+.du-resource-card__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+}
+
+.du-resource-card__media-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.du-resource-card__image,
+.du-resource-card__media .du-media-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.du-resource-card__badge {
+    position: absolute;
+    top: var(--space-xs);
+    left: var(--space-xs);
+    background-color: var(--surface);
+}
+
+.du-resource-card__bookmark {
+    position: absolute;
+    top: var(--space-xs);
+    right: var(--space-xs);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    background-color: var(--surface);
+    color: var(--on-surface-variant);
+    border: none;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.du-resource-card__bookmark:hover {
+    color: var(--primary);
+}
+
+.du-resource-card__bookmark:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--surface-container-low);
+}
+
+.du-resource-card__bookmark.is-saved {
+    color: var(--primary);
+}
+
+.du-resource-card__bookmark.is-saved svg {
+    fill: currentColor;
+}
+
+.du-resource-card__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: var(--space-sm);
+}
+
+.du-resource-card__reading-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--on-surface-variant);
+    margin-bottom: var(--space-xs);
+}
+
+.du-resource-card__title {
+    margin: 0 0 var(--space-xs);
+}
+
+.du-resource-card__title-link {
+    color: var(--on-surface);
+}
+
+.du-resource-card__title-link:hover,
+.du-resource-card__title-link:focus-visible {
+    color: var(--primary);
+}
+
+.du-resource-card__excerpt {
+    color: var(--on-surface-variant);
+    margin: 0 0 var(--space-sm);
+    flex-grow: 1;
+}
+
+.du-resource-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-xs);
+    padding-top: var(--space-xs);
+    border-top: var(--border-width) solid var(--border);
+}
+
+.du-resource-card__date {
+    color: var(--outline);
+}

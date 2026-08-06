@@ -1,0 +1,90 @@
+/* ==========================================================================
+   RESOURCE GRID
+   1 column mobile, 2 columns tablet, 3 columns desktop — matches the
+   supplied design and the project's documented breakpoints.
+   ========================================================================== */
+
+.du-resource-grid {
+    padding-bottom: var(--space-xl);
+}
+
+.du-resource-grid__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+}
+
+.du-resource-grid--empty {
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-lg);
+    text-align: center;
+    color: var(--on-surface-variant);
+}
+
+@media (min-width: 768px) {
+    .du-resource-grid__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .du-resource-grid__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ---- Pagination ---- */
+.du-resource-grid__pagination {
+    margin-top: var(--space-lg);
+    display: flex;
+    justify-content: center;
+}
+
+.du-resource-grid__pagination ul {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.du-resource-grid__pagination a,
+.du-resource-grid__pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 var(--space-xs);
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--on-surface-variant);
+}
+
+.du-resource-grid__pagination a {
+    border: var(--border-width) solid var(--border);
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.du-resource-grid__pagination a:hover,
+.du-resource-grid__pagination a:focus-visible {
+    border-color: var(--primary-hover);
+    color: var(--primary);
+}
+
+.du-resource-grid__pagination .current {
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+.du-resource-grid__pagination .prev,
+.du-resource-grid__pagination .next {
+    gap: 6px;
+}
+
+.du-resource-grid__pagination-prev-icon {
+    transform: rotate(180deg);
+}

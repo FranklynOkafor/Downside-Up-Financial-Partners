@@ -90,7 +90,9 @@ function downside_up_enqueue_assets()
     // 12. Resources Page
     wp_enqueue_style('du-resources-hero', $theme_uri . '/assets/css/resources/_resources-hero.css', ['du-how-it-works'], $theme_version);
     wp_enqueue_style('du-featured-resource', $theme_uri . '/assets/css/resources/_featured-resource.css', ['du-resources-hero'], $theme_version);
-    wp_enqueue_style('du-goal-nav', $theme_uri . '/assets/css/resources/_goal-navigation.css', ['du-featured-resource'], $theme_version);
+    wp_enqueue_style('du-resource-card', $theme_uri . '/assets/css/_resource-card.css', ['du-goal-nav'], $theme_version);
+    wp_enqueue_style('du-resource-grid', $theme_uri . '/assets/css/resources/_resource-grid.css', ['du-resource-card'], $theme_version);
+
 
 
     // JavaScript
@@ -110,6 +112,7 @@ function downside_up_enqueue_assets()
     wp_enqueue_script('du-who-we-help', $theme_uri . '/assets/js/about-page/what-we-offer.js', [], $theme_version, true);
     wp_enqueue_script('du-reality-check-process', $theme_uri . '/assets/js/about-page/reality-check-process.js', [], $theme_version, true);
     wp_enqueue_script('du-faq-accordion', $theme_uri . '/assets/js/about-page/faq-accordion.js', [], $theme_version, true);
+    wp_enqueue_script('du-resource-card', $theme_uri . '/assets/js/resource-card.js', [], $theme_version, true);
 }
 
 add_action('wp_enqueue_scripts', 'downside_up_enqueue_assets');
