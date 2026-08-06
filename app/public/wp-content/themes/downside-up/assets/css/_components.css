@@ -55,6 +55,18 @@
     -webkit-appearance: none;
 }
 
+/* ---- Honeypot ----
+   Hides a spam-trap field from real visitors (visually and from screen
+   readers) while remaining fillable by bots that blindly fill every field.
+   Generic — reusable on any future form, not just Newsletter. */
+.du-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
 /* ---- Badge ----
    Small pill label (e.g. "Featured", category/tag names on resource cards).
    Neutral by default; kept to one calm style rather than per-category

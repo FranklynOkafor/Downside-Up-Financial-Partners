@@ -1,0 +1,119 @@
+/* ==========================================================================
+   NEWSLETTER
+   Dark card using --inverse-surface (the existing dark-inverted-surface
+   token) rather than a new color — same rationale as .du-cta using
+   --primary. Two-column on desktop: heading/description left, form right.
+   ========================================================================== */
+
+.du-newsletter {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+}
+
+.du-newsletter__card {
+    background-color: var(--inverse-surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-lg) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.du-newsletter__content {
+    max-width: 48ch;
+}
+
+.du-newsletter__headline {
+    color: var(--inverse-on-surface);
+    margin: 0 0 var(--space-xs);
+}
+
+.du-newsletter__description {
+    color: var(--inverse-on-surface);
+    opacity: 0.8;
+    margin: 0;
+}
+
+.du-newsletter__form-wrap {
+    width: 100%;
+}
+
+.du-newsletter__field-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.du-newsletter__input {
+    width: 100%;
+    background-color: transparent;
+    border: var(--border-width) solid var(--outline-variant);
+    border-radius: var(--radius);
+    color: var(--inverse-on-surface);
+    padding: var(--space-xs) var(--space-sm);
+    height: 48px;
+    transition: border-color var(--transition-fast);
+}
+
+.du-newsletter__input::placeholder {
+    color: var(--inverse-on-surface);
+    opacity: 0.6;
+}
+
+.du-newsletter__input:hover {
+    border-color: var(--inverse-on-surface);
+}
+
+.du-newsletter__input:focus-visible {
+    outline: none;
+    border-color: var(--inverse-on-surface);
+    box-shadow: 0 0 0 3px rgba(232, 242, 253, 0.15);
+}
+
+.du-newsletter__submit {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.du-newsletter__disclaimer {
+    color: var(--inverse-on-surface);
+    opacity: 0.65;
+    margin: var(--space-xs) 0 0;
+}
+
+.du-newsletter__status {
+    margin: var(--space-xs) 0 0;
+    font-family: var(--font-sans);
+    font-size: 14px;
+}
+
+.du-newsletter__status--success {
+    color: var(--inverse-on-surface);
+    font-weight: 600;
+}
+
+.du-newsletter__status--error {
+    color: #ffb4a9; /* on-error-container-ish tint against a dark background; kept local, not a new global token */
+}
+
+/* ==========================================================================
+   DESKTOP (>= 1025px) — side-by-side
+   ========================================================================== */
+@media (min-width: 1025px) {
+    .du-newsletter__card {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-xl);
+        gap: var(--space-xl);
+    }
+
+    .du-newsletter__form-wrap {
+        width: 420px;
+        flex-shrink: 0;
+    }
+
+    .du-newsletter__field-row {
+        flex-direction: row;
+    }
+}

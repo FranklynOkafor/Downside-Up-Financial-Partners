@@ -18,4 +18,6 @@ get_template_part('template-parts/sections/resources/resource-grid');
 
 get_template_part('template-parts/sections/resources/assessment-cta');
 
+get_template_part('template-parts/components/newsletter');
+
 get_footer();

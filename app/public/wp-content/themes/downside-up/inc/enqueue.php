@@ -94,6 +94,7 @@ function downside_up_enqueue_assets()
     wp_enqueue_style('du-resource-card', $theme_uri . '/assets/css/_resource-card.css', ['du-goal-nav'], $theme_version);
     wp_enqueue_style('du-resource-grid', $theme_uri . '/assets/css/resources/_resource-grid.css', ['du-resource-card'], $theme_version);
     wp_enqueue_style('du-resources-assessment-cta', $theme_uri . '/assets/css/resources/_assessment-cta.css', ['du-resource-grid'], $theme_version);
+    wp_enqueue_style('du-newsletter', $theme_uri . '/assets/css/_newsletter.css', ['du-resources-assessment-cta'], $theme_version);
 
 
 
