@@ -103,11 +103,13 @@
 
 .du-resource-card__title-link {
     color: var(--on-surface);
+    text-decoration: none;
 }
 
 .du-resource-card__title-link:hover,
 .du-resource-card__title-link:focus-visible {
     color: var(--primary);
+    text-decoration: underline;
 }
 
 .du-resource-card__excerpt {
