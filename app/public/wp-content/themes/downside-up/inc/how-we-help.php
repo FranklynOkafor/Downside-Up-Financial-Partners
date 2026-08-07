@@ -42,10 +42,10 @@ function downside_up_get_how_we_help_data()
                 'url'         => $services_page_url . '#financial-planning',
             ],
             [
-                'title'       => __('Investment Strategy', 'downside-up'),
+                'title'       => __('Investment Guidance', 'downside-up'),
                 'description' => __('Develop an investment approach that balances opportunity with long-term stability.', 'downside-up'),
                 'icon'        => 'trending-up',
-                'url'         => $services_page_url . '#investment-strategy',
+                'url'         => $services_page_url . '#investment-guidance',
             ],
             [
                 'title'       => __('Retirement Planning', 'downside-up'),
@@ -60,16 +60,16 @@ function downside_up_get_how_we_help_data()
                 'url'         => $services_page_url . '#debt-management',
             ],
             [
-                'title'       => __('Family Protection', 'downside-up'),
-                'description' => __('Protect the people who depend on you through thoughtful long-term financial planning.', 'downside-up'),
+                'title'       => __('Wealth Preservation', 'downside-up'),
+                'description' => __('Protect what you have built with strategies that guard against inflation, risk and unnecessary erosion.', 'downside-up'),
                 'icon'        => 'shield-check',
-                'url'         => $services_page_url . '#family-protection',
+                'url'         => $services_page_url . '#wealth-preservation',
             ],
             [
-                'title'       => __('Business Financial Advice', 'downside-up'),
-                'description' => __('Make confident financial decisions that support sustainable business growth.', 'downside-up'),
-                'icon'        => 'briefcase',
-                'url'         => $services_page_url . '#business-advice',
+                'title'       => __('Estate Planning', 'downside-up'),
+                'description' => __('Put a clear, legally sound plan in place for transferring what you\'ve built to the people who matter most.', 'downside-up'),
+                'icon'        => 'book-open',
+                'url'         => $services_page_url . '#estate-planning',
             ],
         ],
 

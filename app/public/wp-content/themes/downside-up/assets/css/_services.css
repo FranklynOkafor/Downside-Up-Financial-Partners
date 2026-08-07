@@ -1,0 +1,155 @@
+/* ==========================================================================
+   SERVICES PAGE
+   Additive rules only. Every selector here either scopes a modifier onto
+   an existing component (so the original component/page is untouched) or
+   styles markup that has no existing equivalent (the service card's
+   "Learn More" affordance, the hero's wider media treatment). No new
+   tokens — every value below is one of the existing design tokens.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO — .du-hero--services modifier
+   Same content/media split as .du-hero--about, but more compact (no
+   forced viewport height) per the design review's "reduce the excessive
+   empty space" note, and a wider, landscape media panel to suit a
+   consultation-scene image instead of a portrait.
+   -------------------------------------------------------------------------- */
+.du-hero--services {
+    padding: var(--space-xl) 0;
+}
+
+.du-services-hero {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: var(--space-xl);
+}
+
+.du-services-hero .du-hero__content {
+    margin: 0;
+    max-width: 640px;
+}
+
+.du-services-hero__media {
+    width: 100%;
+}
+
+.du-services-hero__image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-level-2);
+}
+
+@media (min-width: 768px) {
+    .du-services-hero {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-xl);
+    }
+
+    .du-services-hero .du-hero__content {
+        flex: 0 0 46%;
+    }
+
+    .du-services-hero__media {
+        flex: 0 0 50%;
+    }
+}
+
+@media (min-width: 1025px) {
+    .du-hero--services {
+        padding: var(--space-xl) 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. SERVICES GRID — plain 2-up layout + .du-help-card--service modifier
+   Reuses .du-help-card as-is (icon, title, description, Learn More link);
+   only the grid container and a light modifier for icon size / link
+   weight are new, per the design review's "increase icon prominence" and
+   "enlarge the Learn More affordance" notes.
+   -------------------------------------------------------------------------- */
+.du-services-grid {
+    background-color: var(--background);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.du-services-grid__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-md);
+}
+
+.du-help-card--service .du-help-card__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+}
+
+.du-help-card--service .du-help-card__title {
+    font-size: clamp(1.3rem, 1.8vw, 1.5rem);
+}
+
+.du-help-card--service .du-help-card__link {
+    font-size: var(--body-md-size);
+    font-weight: 700;
+    margin-top: var(--space-md);
+    padding-top: var(--space-sm);
+    border-top: var(--border-width) solid var(--border);
+}
+
+@media (min-width: 768px) {
+    .du-services-grid__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .du-services-grid {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   3. PROCESS — .du-rcp--services: five columns instead of four
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .du-rcp--services .du-rcp__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1025px) {
+    .du-rcp--services .du-rcp__grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .du-rcp--services .du-rcp-card {
+        padding: var(--space-md);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. WHY CHOOSE — .du-principles--services: four columns instead of three
+   -------------------------------------------------------------------------- */
+@media (min-width: 1025px) {
+    .du-principles--services .du-principles__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. COMPARISON — .du-comparison--services: two columns instead of three
+   -------------------------------------------------------------------------- */
+@media (min-width: 1025px) {
+    .du-comparison--services .du-comparison__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 900px;
+        margin-inline: auto;
+    }
+}

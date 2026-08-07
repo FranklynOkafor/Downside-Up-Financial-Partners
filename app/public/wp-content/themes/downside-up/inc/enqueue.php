@@ -102,6 +102,11 @@ function downside_up_enqueue_assets()
     wp_enqueue_style('du-article-content', $theme_uri . '/assets/css/_article-content.css', ['du-article-layout'], $theme_version);
     wp_enqueue_style('du-article-footer', $theme_uri . '/assets/css/_article-footer.css', ['du-article-content'], $theme_version);
 
+    // 14. Services Page — additive modifiers on top of hero, how-we-help,
+    // reality-check-process, principles-grid and how-it-works comparison,
+    // so it must load after all of them.
+    wp_enqueue_style('du-services', $theme_uri . '/assets/css/_services.css', ['du-article-footer'], $theme_version);
+
 
 
 

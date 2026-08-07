@@ -31,6 +31,9 @@ require_once get_template_directory() . '/inc/about-page/what-we-offer_data.php'
 require_once get_template_directory() . '/inc/about-page/reality-check-process.php';
 require_once get_template_directory() . '/inc/about-page/faq-accordion.php';
 
+// Services Page
+require_once get_template_directory() . '/inc/services/services-data.php';
+
 // CTA
 require_once get_template_directory() . '/inc/cta/cta.php';
 
