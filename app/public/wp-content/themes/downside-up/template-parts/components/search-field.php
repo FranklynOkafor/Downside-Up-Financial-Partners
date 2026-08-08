@@ -23,9 +23,6 @@ if (!empty($args['classes'])) {
 }
 ?>
 <form role="search" method="get" class="<?php echo esc_attr($du_classes); ?>" action="<?php echo esc_url($du_action); ?>">
-    <span class="du-search-field__icon" aria-hidden="true">
-        <?php echo downside_up_icon('search', ['class' => 'du-search-field__icon-svg', 'width' => 18, 'height' => 18]); ?>
-    </span>
     <label for="du-search-field-input" class="du-sr-only"><?php echo esc_html($du_aria_label); ?></label>
     <input
         type="search"
@@ -35,4 +32,7 @@ if (!empty($args['classes'])) {
         value="<?php echo esc_attr(get_search_query()); ?>"
         placeholder="<?php echo esc_attr($du_placeholder); ?>"
         autocomplete="off">
+    <button type="submit" class="du-search-field__submit" aria-label="<?php esc_attr_e('Search', 'downside-up'); ?>">
+        <?php echo downside_up_icon('search', ['class' => 'du-search-field__icon-svg', 'width' => 18, 'height' => 18]); ?>
+    </button>
 </form>

@@ -107,6 +107,23 @@ function downside_up_enqueue_assets()
     // so it must load after all of them.
     wp_enqueue_style('du-services', $theme_uri . '/assets/css/_services.css', ['du-article-footer'], $theme_version);
 
+    // 15. 404 Page — depends on _components.css (search field) and
+    // _buttons.css (.du-btn--inverse), both already enqueued earlier.
+    wp_enqueue_style('du-error-404', $theme_uri . '/assets/css/_error-404.css', ['du-services'], $theme_version);
+
+    // 16. Generic form fields — first reusable input/select/textarea
+    // primitive in the theme (see assets/css/_forms.css). Depends only on
+    // tokens/components, so it can load anywhere any other page-specific
+    // sheet could; placed after 404 simply to keep enqueue.php's running
+    // order (each sheet after the last one added) intact.
+    wp_enqueue_style('du-forms', $theme_uri . '/assets/css/_forms.css', ['du-error-404'], $theme_version);
+
+    // 17. Contact Us page — presence hero modifier, contact grid,
+    // operational-flow card, discovery-call card. Depends on du-forms
+    // (form fields), du-cta (.du-cta--compact base) and du-hero (base
+    // .du-hero), all already enqueued above.
+    wp_enqueue_style('du-contact', $theme_uri . '/assets/css/_contact.css', ['du-forms', 'du-cta', 'du-hero'], $theme_version);
+
 
 
 
@@ -133,6 +150,12 @@ function downside_up_enqueue_assets()
     wp_enqueue_script('du-article-toc', $theme_uri . '/assets/js/article-toc.js', [], $theme_version, true);
     wp_enqueue_script('du-article-progress', $theme_uri . '/assets/js/article-progress.js', [], $theme_version, true);
     wp_enqueue_script('du-article-share', $theme_uri . '/assets/js/article-share.js', [], $theme_version, true);
+
+    // Contact Us page — Direct Inquiry form (client validation + AJAX submit).
+    wp_enqueue_script('du-contact-form', $theme_uri . '/assets/js/contact-form.js', [], $theme_version, true);
+    wp_localize_script('du-contact-form', 'duContactForm', [
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+    ]);
 }
 
 add_action('wp_enqueue_scripts', 'downside_up_enqueue_assets');

@@ -5,42 +5,51 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Returns all testimonials.
+ * Testimonials data.
  *
- * Currently backed by the placeholder array in inc/data/testimonials.php.
- * To switch to a custom post type or ACF later: replace the body of this
- * function with a WP_Query / get_field() call that returns the same shape
- * (quote, name, role, company, avatar) — template-parts/sections/testimonials.php
- * never needs to change.
+ * NOTE ON SCOPE: this file did not exist in the theme package as
+ * delivered, even though functions.php require_once's it and both
+ * front-page.php and template-parts/sections/testimonials.php already
+ * depend on it — so the homepage (and any other page using the
+ * testimonials section) was fatal-erroring before this file was added.
+ * assets/images/testimonials/ already contains three named avatar files
+ * (jameson-thorne.jpg, marcus-webb.jpg, priya-anand.jpg) suggesting a
+ * fuller, real 3-quote carousel was planned; no copy for those three
+ * exists anywhere in the project, so nothing has been invented for them
+ * here. Only the single quote explicitly given in the Contact Us page
+ * brief is included below, with a placeholder-avatar fallback (the
+ * carousel component already handles a missing avatar gracefully — see
+ * .du-testimonials__avatar--placeholder in _testimonials.css). Whoever
+ * owns testimonial content should extend the array below with the real
+ * quotes/roles for those three images when available; no template
+ * changes are needed to do so.
  */
 function downside_up_get_testimonials()
 {
-    static $testimonials = null;
+    $defaults = [
+        [
+            'quote'   => __('The transition from confusion to clarity begins with a single conversation.', 'downside-up'),
+            'name'    => __('Marcus Thorne', 'downside-up'),
+            'role'    => __('Head of Advisory', 'downside-up'),
+            'company' => '',
+            'avatar'  => '',
+        ],
+    ];
 
-    if (null === $testimonials) {
-        $testimonials = require get_template_directory() . '/inc/data/testimonials.php';
-        $testimonials = apply_filters('downside_up_testimonials', $testimonials);
-    }
-
-    return $testimonials;
+    return apply_filters('downside_up_testimonials', $defaults);
 }
 
 /**
- * Resolves a testimonial's avatar to a full URL.
- * Placeholder-friendly: falls back gracefully if the file doesn't exist
- * yet rather than rendering a broken image.
+ * Resolves a testimonial's avatar filename (stored relative to
+ * assets/images/testimonials/) to a full URL, or '' if none is set —
+ * template-parts/sections/testimonials.php already falls back to a
+ * placeholder avatar in that case.
  */
-function downside_up_testimonial_avatar_url($filename)
+function downside_up_testimonial_avatar_url($avatar)
 {
-    if (empty($filename)) {
+    if (empty($avatar)) {
         return '';
     }
 
-    $path = get_template_directory() . '/assets/images/testimonials/' . $filename;
-
-    if (!file_exists($path)) {
-        return '';
-    }
-
-    return get_template_directory_uri() . '/assets/images/testimonials/' . $filename;
+    return get_template_directory_uri() . '/assets/images/testimonials/' . ltrim($avatar, '/');
 }

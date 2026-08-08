@@ -1,0 +1,153 @@
+/* ==========================================================================
+   404 PAGE
+   Full-bleed dark section. Uses the same --inverse-surface /
+   --inverse-on-surface pairing as .du-privacy (_how-it-works.css) — the
+   theme's existing convention for a dark, full-width section — rather
+   than introducing a new dark-surface color pair. Buttons reuse
+   .du-btn--inverse; the search field reuses .du-search-field with the
+   --inverse modifier added in _components.css. Only the pieces with no
+   existing equivalent (decorative watermark, technical error-code
+   treatment, divider, secondary link) are new, scoped rules below.
+   ========================================================================== */
+
+.du-404 {
+    position: relative;
+    background-color: var(--inverse-surface);
+    overflow: hidden;
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.du-404__inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* ---- Decorative watermark ----
+   Purely visual, sits behind the content, not part of the page's
+   information hierarchy. */
+.du-404__decorative {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(7rem, 26vw, 15rem);
+    line-height: 1;
+    color: var(--inverse-on-surface);
+    opacity: 0.06;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.du-404__content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+}
+
+/* ---- Error code ----
+   "Technical/monospaced" per the design reference. --font-mono is the
+   existing token for this (already used for financial data/scores via
+   .du-text-number-display), borrowed here directly rather than reusing
+   that class, since the intent (a wide-tracked status code) and size
+   differ from a financial number display. */
+.du-404__code {
+    font-family: var(--font-mono);
+    font-size: clamp(1.25rem, 3.2vw, 2rem);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--inverse-on-surface);
+    opacity: 0.85;
+    margin: 0 0 var(--space-md);
+}
+
+/* Same 32px / 2px / pill recipe already used under the eyebrow in the
+   Reality Check Process and FAQ sections. */
+.du-404__divider {
+    display: block;
+    width: 32px;
+    height: 2px;
+    background-color: var(--on-tertiary-container);
+    border-radius: var(--radius-full);
+    margin: 0 auto var(--space-lg);
+}
+
+.du-404__heading {
+    font-style: italic;
+    color: var(--on-primary);
+    margin: 0 0 var(--space-md);
+}
+
+.du-404__description {
+    color: var(--inverse-on-surface);
+    opacity: 0.85;
+    max-width: 48ch;
+    margin: 0 auto var(--space-lg);
+}
+
+.du-404__search {
+    max-width: 380px;
+    margin: 0 auto var(--space-lg);
+}
+
+.du-404__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.du-404__secondary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-sans);
+    font-size: var(--label-caps-size);
+    font-weight: 700;
+    letter-spacing: var(--label-caps-tracking);
+    text-transform: uppercase;
+    color: var(--inverse-on-surface);
+    text-decoration: none;
+    padding: var(--space-xs);
+    transition: color var(--transition-fast);
+}
+
+.du-404__secondary-link:hover,
+.du-404__secondary-link:focus-visible {
+    color: var(--on-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---- Tablet & up ---- */
+@media (min-width: 768px) {
+    .du-404__actions {
+        flex-direction: row;
+        justify-content: center;
+        gap: var(--space-lg);
+    }
+}
+
+/* ---- Reduced motion ----
+   No animation is used on this page beyond the standard color/border
+   transitions already defined on .du-btn / .du-search-field / links,
+   which are simple property transitions, not motion effects — nothing
+   further to disable here, but the query is included for parity with
+   the rest of the theme's reduced-motion handling. */
+@media (prefers-reduced-motion: reduce) {
+    .du-404__secondary-link,
+    .du-404__search .du-search-field__input,
+    .du-404__actions .du-btn {
+        transition: none;
+    }
+}

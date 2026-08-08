@@ -1,0 +1,132 @@
+/* ==========================================================================
+   FORM FIELDS — generic, reusable input/select/textarea primitives
+   No such component existed in the theme prior to the Contact Us page
+   (only the narrow single-purpose .du-search-field__input and
+   .du-newsletter__input). Built from the same tokens those use
+   (--surface, --border, --radius, --transition-fast) so it matches the
+   existing visual language and is safe to reuse on any future form.
+   ========================================================================== */
+
+.du-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.du-form-field__label {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--on-background);
+}
+
+.du-form-field__required {
+    color: var(--error);
+    margin-left: 2px;
+}
+
+.du-form-field__control {
+    width: 100%;
+    background-color: var(--surface-container-low);
+    border: var(--border-width) solid transparent;
+    border-radius: var(--radius);
+    color: var(--on-surface);
+    font-family: var(--font-sans);
+    font-size: var(--body-md-size);
+    line-height: var(--body-md-line);
+    padding: var(--space-xs) var(--space-sm);
+    height: 52px;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+textarea.du-form-field__control {
+    height: auto;
+    min-height: 140px;
+    resize: vertical;
+}
+
+select.du-form-field__control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2342474c' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-sm) center;
+    background-size: 18px;
+    padding-right: calc(var(--space-sm) * 2 + 18px);
+    cursor: pointer;
+}
+
+.du-form-field__control::placeholder {
+    color: var(--outline);
+}
+
+.du-form-field__control:hover {
+    border-color: var(--outline-variant);
+}
+
+.du-form-field__control:focus-visible {
+    outline: none;
+    border-color: var(--primary-hover);
+    background-color: var(--surface);
+    box-shadow: 0 0 0 3px rgba(80, 152, 190, 0.18);
+}
+
+.du-form-field__hint {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--on-surface-variant);
+}
+
+/* ---- Error state ----
+   Never relies on color alone: paired with an icon-free inline text
+   message (role="alert") and aria-invalid/aria-describedby set in markup. */
+.du-form-field--error .du-form-field__control {
+    border-color: var(--error);
+    background-color: var(--error-container);
+}
+
+.du-form-field--error .du-form-field__control:focus-visible {
+    box-shadow: 0 0 0 3px rgba(186, 26, 26, 0.15);
+}
+
+.du-form-field__error {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--error);
+}
+
+/* ---- Form-level status banner (submit success / failure) ---- */
+.du-form-status {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    border-radius: var(--radius);
+    padding: var(--space-sm);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.du-form-status--success {
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+}
+
+.du-form-status--error {
+    background-color: var(--error-container);
+    color: var(--on-error-container);
+}
+
+.du-form-status[hidden] {
+    display: none;
+}
+
+/* ---- Honeypot label (pairs with the .du-honeypot wrapper in _components.css) ---- */
+.du-form-field--honeypot {
+    margin-bottom: 0;
+}
