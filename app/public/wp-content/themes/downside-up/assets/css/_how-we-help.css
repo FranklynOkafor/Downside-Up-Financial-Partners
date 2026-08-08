@@ -58,7 +58,7 @@
     flex-direction: column;
     text-decoration: none;
 
-    opacity: 0;
+    /* opacity: 0; */
     transform: translateY(16px);
     transition: opacity var(--transition-slow), transform var(--transition-slow),
                 box-shadow var(--transition-normal), border-color var(--transition-normal);

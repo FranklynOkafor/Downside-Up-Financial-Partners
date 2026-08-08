@@ -15,7 +15,8 @@
    consultation-scene image instead of a portrait.
    -------------------------------------------------------------------------- */
 .du-hero--services {
-    padding: var(--space-xl) 0;
+    padding: 0;
+    
 }
 
 .du-services-hero {
@@ -23,6 +24,7 @@
     flex-direction: column-reverse;
     align-items: stretch;
     gap: var(--space-xl);
+    height: 90vh
 }
 
 .du-services-hero .du-hero__content {
@@ -61,7 +63,7 @@
 
 @media (min-width: 1025px) {
     .du-hero--services {
-        padding: var(--space-xl) 0;
+        padding: 0;
     }
 }
 
